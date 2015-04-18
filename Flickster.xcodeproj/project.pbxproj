@@ -1,0 +1,530 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CF6512331AE24C7D00EEDE0A /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6512291AE24C2400EEDE0A /* libRestKit.a */; };
+		CF6512381AE2509000EEDE0A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6512371AE2509000EEDE0A /* SystemConfiguration.framework */; };
+		CF65123B1AE250BA00EEDE0A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6512391AE2509700EEDE0A /* MobileCoreServices.framework */; };
+		CF6512421AE2F4C700EEDE0A /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6512411AE2F4C700EEDE0A /* Photo.m */; };
+		CF801ACA1ADF83A9006E4054 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF801AC91ADF83A9006E4054 /* main.m */; };
+		CF801ACD1ADF83A9006E4054 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF801ACC1ADF83A9006E4054 /* AppDelegate.m */; };
+		CF801AD01ADF83A9006E4054 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF801ACF1ADF83A9006E4054 /* ViewController.m */; };
+		CF801AD31ADF83A9006E4054 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF801AD11ADF83A9006E4054 /* Main.storyboard */; };
+		CF801AD51ADF83A9006E4054 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF801AD41ADF83A9006E4054 /* Images.xcassets */; };
+		CF801AD81ADF83A9006E4054 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF801AD61ADF83A9006E4054 /* LaunchScreen.xib */; };
+		CF801AE41ADF83A9006E4054 /* FlicksterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF801AE31ADF83A9006E4054 /* FlicksterTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CF6512281AE24C2400EEDE0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF6512231AE24C2300EEDE0A /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D1614564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		CF65122A1AE24C2400EEDE0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF6512231AE24C2300EEDE0A /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E62145651060060A5C5;
+			remoteInfo = RestKitFramework;
+		};
+		CF6512311AE24C7900EEDE0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF6512231AE24C2300EEDE0A /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		CF801ADE1ADF83A9006E4054 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF801ABC1ADF83A9006E4054 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF801AC31ADF83A9006E4054;
+			remoteInfo = Flickster;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CF6512231AE24C2300EEDE0A /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = "RestKit-0.20.3/RestKit.xcodeproj"; sourceTree = "<group>"; };
+		CF6512371AE2509000EEDE0A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CF6512391AE2509700EEDE0A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		CF6512401AE2F4C700EEDE0A /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		CF6512411AE2F4C700EEDE0A /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		CF801AC41ADF83A9006E4054 /* Flickster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flickster.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF801AC81ADF83A9006E4054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF801AC91ADF83A9006E4054 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CF801ACB1ADF83A9006E4054 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CF801ACC1ADF83A9006E4054 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CF801ACE1ADF83A9006E4054 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CF801ACF1ADF83A9006E4054 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CF801AD21ADF83A9006E4054 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CF801AD41ADF83A9006E4054 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CF801AD71ADF83A9006E4054 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		CF801ADD1ADF83A9006E4054 /* FlicksterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlicksterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF801AE21ADF83A9006E4054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF801AE31ADF83A9006E4054 /* FlicksterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlicksterTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CF801AC11ADF83A9006E4054 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF65123B1AE250BA00EEDE0A /* MobileCoreServices.framework in Frameworks */,
+				CF6512381AE2509000EEDE0A /* SystemConfiguration.framework in Frameworks */,
+				CF6512331AE24C7D00EEDE0A /* libRestKit.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF801ADA1ADF83A9006E4054 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CF6512241AE24C2300EEDE0A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CF6512291AE24C2400EEDE0A /* libRestKit.a */,
+				CF65122B1AE24C2400EEDE0A /* RestKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF65123C1AE252C400EEDE0A /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				CF6512391AE2509700EEDE0A /* MobileCoreServices.framework */,
+				CF6512371AE2509000EEDE0A /* SystemConfiguration.framework */,
+				CF6512231AE24C2300EEDE0A /* RestKit.xcodeproj */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		CF801ABB1ADF83A9006E4054 = {
+			isa = PBXGroup;
+			children = (
+				CF65123C1AE252C400EEDE0A /* libs */,
+				CF801AC61ADF83A9006E4054 /* Flickster */,
+				CF801AE01ADF83A9006E4054 /* FlicksterTests */,
+				CF801AC51ADF83A9006E4054 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CF801AC51ADF83A9006E4054 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CF801AC41ADF83A9006E4054 /* Flickster.app */,
+				CF801ADD1ADF83A9006E4054 /* FlicksterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF801AC61ADF83A9006E4054 /* Flickster */ = {
+			isa = PBXGroup;
+			children = (
+				CF801ACB1ADF83A9006E4054 /* AppDelegate.h */,
+				CF801ACC1ADF83A9006E4054 /* AppDelegate.m */,
+				CF801ACE1ADF83A9006E4054 /* ViewController.h */,
+				CF801ACF1ADF83A9006E4054 /* ViewController.m */,
+				CF801AD11ADF83A9006E4054 /* Main.storyboard */,
+				CF801AD41ADF83A9006E4054 /* Images.xcassets */,
+				CF801AD61ADF83A9006E4054 /* LaunchScreen.xib */,
+				CF801AC71ADF83A9006E4054 /* Supporting Files */,
+				CF6512401AE2F4C700EEDE0A /* Photo.h */,
+				CF6512411AE2F4C700EEDE0A /* Photo.m */,
+			);
+			path = Flickster;
+			sourceTree = "<group>";
+		};
+		CF801AC71ADF83A9006E4054 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF801AC81ADF83A9006E4054 /* Info.plist */,
+				CF801AC91ADF83A9006E4054 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CF801AE01ADF83A9006E4054 /* FlicksterTests */ = {
+			isa = PBXGroup;
+			children = (
+				CF801AE31ADF83A9006E4054 /* FlicksterTests.m */,
+				CF801AE11ADF83A9006E4054 /* Supporting Files */,
+			);
+			path = FlicksterTests;
+			sourceTree = "<group>";
+		};
+		CF801AE11ADF83A9006E4054 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF801AE21ADF83A9006E4054 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CF801AC31ADF83A9006E4054 /* Flickster */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF801AE71ADF83A9006E4054 /* Build configuration list for PBXNativeTarget "Flickster" */;
+			buildPhases = (
+				CF801AC01ADF83A9006E4054 /* Sources */,
+				CF801AC11ADF83A9006E4054 /* Frameworks */,
+				CF801AC21ADF83A9006E4054 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CF6512321AE24C7900EEDE0A /* PBXTargetDependency */,
+			);
+			name = Flickster;
+			productName = Flickster;
+			productReference = CF801AC41ADF83A9006E4054 /* Flickster.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CF801ADC1ADF83A9006E4054 /* FlicksterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF801AEA1ADF83A9006E4054 /* Build configuration list for PBXNativeTarget "FlicksterTests" */;
+			buildPhases = (
+				CF801AD91ADF83A9006E4054 /* Sources */,
+				CF801ADA1ADF83A9006E4054 /* Frameworks */,
+				CF801ADB1ADF83A9006E4054 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CF801ADF1ADF83A9006E4054 /* PBXTargetDependency */,
+			);
+			name = FlicksterTests;
+			productName = FlicksterTests;
+			productReference = CF801ADD1ADF83A9006E4054 /* FlicksterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CF801ABC1ADF83A9006E4054 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = Wooga;
+				TargetAttributes = {
+					CF801AC31ADF83A9006E4054 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					CF801ADC1ADF83A9006E4054 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = CF801AC31ADF83A9006E4054;
+					};
+				};
+			};
+			buildConfigurationList = CF801ABF1ADF83A9006E4054 /* Build configuration list for PBXProject "Flickster" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF801ABB1ADF83A9006E4054;
+			productRefGroup = CF801AC51ADF83A9006E4054 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = CF6512241AE24C2300EEDE0A /* Products */;
+					ProjectRef = CF6512231AE24C2300EEDE0A /* RestKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				CF801AC31ADF83A9006E4054 /* Flickster */,
+				CF801ADC1ADF83A9006E4054 /* FlicksterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		CF6512291AE24C2400EEDE0A /* libRestKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKit.a;
+			remoteRef = CF6512281AE24C2400EEDE0A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CF65122B1AE24C2400EEDE0A /* RestKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RestKit.framework;
+			remoteRef = CF65122A1AE24C2400EEDE0A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CF801AC21ADF83A9006E4054 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF801AD31ADF83A9006E4054 /* Main.storyboard in Resources */,
+				CF801AD81ADF83A9006E4054 /* LaunchScreen.xib in Resources */,
+				CF801AD51ADF83A9006E4054 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF801ADB1ADF83A9006E4054 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CF801AC01ADF83A9006E4054 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF6512421AE2F4C700EEDE0A /* Photo.m in Sources */,
+				CF801AD01ADF83A9006E4054 /* ViewController.m in Sources */,
+				CF801ACD1ADF83A9006E4054 /* AppDelegate.m in Sources */,
+				CF801ACA1ADF83A9006E4054 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF801AD91ADF83A9006E4054 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF801AE41ADF83A9006E4054 /* FlicksterTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CF6512321AE24C7900EEDE0A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = CF6512311AE24C7900EEDE0A /* PBXContainerItemProxy */;
+		};
+		CF801ADF1ADF83A9006E4054 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CF801AC31ADF83A9006E4054 /* Flickster */;
+			targetProxy = CF801ADE1ADF83A9006E4054 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CF801AD11ADF83A9006E4054 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF801AD21ADF83A9006E4054 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CF801AD61ADF83A9006E4054 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF801AD71ADF83A9006E4054 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CF801AE51ADF83A9006E4054 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CF801AE61ADF83A9006E4054 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CF801AE81ADF83A9006E4054 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"RestKit-0.20.3/**",
+				);
+				INFOPLIST_FILE = Flickster/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CF801AE91ADF83A9006E4054 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"RestKit-0.20.3/**",
+				);
+				INFOPLIST_FILE = Flickster/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CF801AEB1ADF83A9006E4054 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FlicksterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flickster.app/Flickster";
+			};
+			name = Debug;
+		};
+		CF801AEC1ADF83A9006E4054 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FlicksterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flickster.app/Flickster";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CF801ABF1ADF83A9006E4054 /* Build configuration list for PBXProject "Flickster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF801AE51ADF83A9006E4054 /* Debug */,
+				CF801AE61ADF83A9006E4054 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF801AE71ADF83A9006E4054 /* Build configuration list for PBXNativeTarget "Flickster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF801AE81ADF83A9006E4054 /* Debug */,
+				CF801AE91ADF83A9006E4054 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF801AEA1ADF83A9006E4054 /* Build configuration list for PBXNativeTarget "FlicksterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF801AEB1ADF83A9006E4054 /* Debug */,
+				CF801AEC1ADF83A9006E4054 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CF801ABC1ADF83A9006E4054 /* Project object */;
+}
