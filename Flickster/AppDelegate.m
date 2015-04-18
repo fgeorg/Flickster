@@ -3,10 +3,11 @@
 //  Flickster
 //
 //  Created by Francesco Georg on 15/04/15.
-//  Copyright (c) 2015 Wooga. All rights reserved.
+//  Copyright (c) 2015. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "FlickrRestClient.h"
 
 @interface AppDelegate ()
 
@@ -16,6 +17,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[FlickrRestClient sharedInstance] setup];
     // Override point for customization after application launch.
     return YES;
 }
