@@ -249,14 +249,6 @@
 		552D91191753951300BE3FEA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		552D911B1753951300BE3FEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		552D911D1753951300BE3FEA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		552D913F1753951300BE3FEA /* FlickrKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlickrKitTests-Info.plist"; sourceTree = "<group>"; };
-		552D91411753951300BE3FEA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		552D91431753951300BE3FEA /* FlickrKitTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlickrKitTests.h; sourceTree = "<group>"; };
-		552D91441753951300BE3FEA /* FlickrKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlickrKitTests.m; sourceTree = "<group>"; };
-		552D91631753B7EC00BE3FEA /* FlickrKitFailTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrKitFailTests.h; sourceTree = "<group>"; };
-		552D91641753B7EC00BE3FEA /* FlickrKitFailTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrKitFailTests.m; sourceTree = "<group>"; };
-		552D916A1753C5C900BE3FEA /* FlickrAuthTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAuthTests.h; sourceTree = "<group>"; };
-		552D916B1753C5C900BE3FEA /* FlickrAuthTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrAuthTests.m; sourceTree = "<group>"; };
 		552D918C1753F8EF00BE3FEA /* libFlickrKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFlickrKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		552D91E61754AE8A00BE3FEA /* FKDUBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKDUBlocks.h; sourceTree = "<group>"; };
 		552D91E71754AE8A00BE3FEA /* FKDUBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKDUBlocks.m; sourceTree = "<group>"; };
@@ -272,7 +264,6 @@
 		552D92161754DBAC00BE3FEA /* FKDUDefaultDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKDUDefaultDiskCache.h; sourceTree = "<group>"; };
 		552D92171754DBAC00BE3FEA /* FKDUDefaultDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKDUDefaultDiskCache.m; sourceTree = "<group>"; };
 		552D921A1754DC6500BE3FEA /* FKDUDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKDUDiskCache.h; sourceTree = "<group>"; };
-		552D921D175504DF00BE3FEA /* FlickrKit_Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrKit_Tests.h; sourceTree = "<group>"; };
 		555ADB1C1766640100AA91AB /* FKFlickrAPIMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FKFlickrAPIMethod.h; path = Model/FKFlickrAPIMethod.h; sourceTree = "<group>"; };
 		555F2D2817678A9700E84674 /* FKFlickrActivityUserComments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKFlickrActivityUserComments.h; sourceTree = "<group>"; };
 		555F2D2917678A9700E84674 /* FKFlickrActivityUserComments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKFlickrActivityUserComments.m; sourceTree = "<group>"; };
@@ -698,8 +689,6 @@
 		55AD49051760DBE5004AF85C /* FKImageUploadNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKImageUploadNetworkOperation.m; sourceTree = "<group>"; };
 		55AD49081760E545004AF85C /* FKUploadRespone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKUploadRespone.h; sourceTree = "<group>"; };
 		55AD49091760E546004AF85C /* FKUploadRespone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKUploadRespone.m; sourceTree = "<group>"; };
-		55AEEF4A175661C100B61A3C /* FlickrKitUtilTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrKitUtilTests.h; sourceTree = "<group>"; };
-		55AEEF4B175661C100B61A3C /* FlickrKitUtilTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrKitUtilTests.m; sourceTree = "<group>"; };
 		55AEEF4E1756646400B61A3C /* FKUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FKUtilities.h; path = Utilities/FKUtilities.h; sourceTree = "<group>"; };
 		55AEEF4F1756646400B61A3C /* FKUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FKUtilities.m; path = Utilities/FKUtilities.m; sourceTree = "<group>"; };
 		55AEEF55175766D500B61A3C /* FKDUReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKDUReachability.h; sourceTree = "<group>"; };
@@ -733,7 +722,6 @@
 				55B206EB176903E300A19A12 /* Source Code License.rtf */,
 				552D91E41754AE8900BE3FEA /* Classes */,
 				552D91201753951300BE3FEA /* Supporting Files */,
-				552D913D1753951300BE3FEA /* Tests */,
 				552D91181753951300BE3FEA /* Frameworks */,
 				552D91171753951300BE3FEA /* Products */,
 			);
@@ -767,33 +755,6 @@
 			);
 			name = "Supporting Files";
 			path = FlickrKit;
-			sourceTree = "<group>";
-		};
-		552D913D1753951300BE3FEA /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				55AEEF4A175661C100B61A3C /* FlickrKitUtilTests.h */,
-				55AEEF4B175661C100B61A3C /* FlickrKitUtilTests.m */,
-				552D921D175504DF00BE3FEA /* FlickrKit_Tests.h */,
-				552D91431753951300BE3FEA /* FlickrKitTests.h */,
-				552D91441753951300BE3FEA /* FlickrKitTests.m */,
-				552D91631753B7EC00BE3FEA /* FlickrKitFailTests.h */,
-				552D91641753B7EC00BE3FEA /* FlickrKitFailTests.m */,
-				552D916A1753C5C900BE3FEA /* FlickrAuthTests.h */,
-				552D916B1753C5C900BE3FEA /* FlickrAuthTests.m */,
-				552D913E1753951300BE3FEA /* Supporting Files */,
-			);
-			name = Tests;
-			path = FlickrKitTests;
-			sourceTree = "<group>";
-		};
-		552D913E1753951300BE3FEA /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				552D913F1753951300BE3FEA /* FlickrKitTests-Info.plist */,
-				552D91401753951300BE3FEA /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		552D91E41754AE8900BE3FEA /* Classes */ = {
@@ -1887,17 +1848,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		552D91401753951300BE3FEA /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				552D91411753951300BE3FEA /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		552D91461753951300BE3FEA /* Debug */ = {

@@ -12,6 +12,7 @@
 		CF6512461AE303AF00EEDE0A /* FlickrClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6512451AE303AF00EEDE0A /* FlickrClient.m */; };
 		CF65125B1AE3114900EEDE0A /* libFlickrKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6512521AE30ED700EEDE0A /* libFlickrKit.a */; };
 		CF65125D1AE3120D00EEDE0A /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF65125C1AE3120D00EEDE0A /* AssetsLibrary.framework */; };
+		CF6512611AE3169700EEDE0A /* FKAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF65125F1AE3169700EEDE0A /* FKAuthViewController.m */; };
 		CF801ACA1ADF83A9006E4054 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF801AC91ADF83A9006E4054 /* main.m */; };
 		CF801ACD1ADF83A9006E4054 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF801ACC1ADF83A9006E4054 /* AppDelegate.m */; };
 		CF801AD01ADF83A9006E4054 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF801ACF1ADF83A9006E4054 /* ViewController.m */; };
@@ -53,6 +54,8 @@
 		CF6512481AE303FD00EEDE0A /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		CF65124D1AE30ED700EEDE0A /* FlickrKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FlickrKit.xcodeproj; path = "FlickrKit-1.0.5/FlickrKit.xcodeproj"; sourceTree = "<group>"; };
 		CF65125C1AE3120D00EEDE0A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		CF65125E1AE3169700EEDE0A /* FKAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKAuthViewController.h; sourceTree = "<group>"; };
+		CF65125F1AE3169700EEDE0A /* FKAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKAuthViewController.m; sourceTree = "<group>"; };
 		CF801AC41ADF83A9006E4054 /* Flickster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flickster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF801AC81ADF83A9006E4054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF801AC91ADF83A9006E4054 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -135,6 +138,8 @@
 				CF801ACC1ADF83A9006E4054 /* AppDelegate.m */,
 				CF6512441AE303AF00EEDE0A /* FlickrClient.h */,
 				CF6512451AE303AF00EEDE0A /* FlickrClient.m */,
+				CF65125E1AE3169700EEDE0A /* FKAuthViewController.h */,
+				CF65125F1AE3169700EEDE0A /* FKAuthViewController.m */,
 				CF801AD41ADF83A9006E4054 /* Images.xcassets */,
 				CF801AD61ADF83A9006E4054 /* LaunchScreen.xib */,
 				CF801AD11ADF83A9006E4054 /* Main.storyboard */,
@@ -289,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF6512611AE3169700EEDE0A /* FKAuthViewController.m in Sources */,
 				CF6512461AE303AF00EEDE0A /* FlickrClient.m in Sources */,
 				CF801AD01ADF83A9006E4054 /* ViewController.m in Sources */,
 				CF801ACD1ADF83A9006E4054 /* AppDelegate.m in Sources */,
