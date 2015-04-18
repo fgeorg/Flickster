@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF6512331AE24C7D00EEDE0A /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6512291AE24C2400EEDE0A /* libRestKit.a */; };
 		CF6512381AE2509000EEDE0A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6512371AE2509000EEDE0A /* SystemConfiguration.framework */; };
 		CF65123B1AE250BA00EEDE0A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6512391AE2509700EEDE0A /* MobileCoreServices.framework */; };
-		CF6512421AE2F4C700EEDE0A /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6512411AE2F4C700EEDE0A /* Photo.m */; };
-		CF6512461AE303AF00EEDE0A /* FlickrRestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6512451AE303AF00EEDE0A /* FlickrRestClient.m */; };
+		CF6512461AE303AF00EEDE0A /* FlickrClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6512451AE303AF00EEDE0A /* FlickrClient.m */; };
+		CF65125B1AE3114900EEDE0A /* libFlickrKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6512521AE30ED700EEDE0A /* libFlickrKit.a */; };
+		CF65125D1AE3120D00EEDE0A /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF65125C1AE3120D00EEDE0A /* AssetsLibrary.framework */; };
 		CF801ACA1ADF83A9006E4054 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF801AC91ADF83A9006E4054 /* main.m */; };
 		CF801ACD1ADF83A9006E4054 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF801ACC1ADF83A9006E4054 /* AppDelegate.m */; };
 		CF801AD01ADF83A9006E4054 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF801ACF1ADF83A9006E4054 /* ViewController.m */; };
@@ -22,26 +22,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CF6512281AE24C2400EEDE0A /* PBXContainerItemProxy */ = {
+		CF6512511AE30ED700EEDE0A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CF6512231AE24C2300EEDE0A /* RestKit.xcodeproj */;
+			containerPortal = CF65124D1AE30ED700EEDE0A /* FlickrKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 25160D1614564E810060A5C5;
-			remoteInfo = RestKit;
+			remoteGlobalIDString = 552D918C1753F8EF00BE3FEA;
+			remoteInfo = FlickrKit;
 		};
-		CF65122A1AE24C2400EEDE0A /* PBXContainerItemProxy */ = {
+		CF6512571AE3114200EEDE0A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CF6512231AE24C2300EEDE0A /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25160E62145651060060A5C5;
-			remoteInfo = RestKitFramework;
-		};
-		CF6512311AE24C7900EEDE0A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CF6512231AE24C2300EEDE0A /* RestKit.xcodeproj */;
+			containerPortal = CF65124D1AE30ED700EEDE0A /* FlickrKit.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 25160D1514564E810060A5C5;
-			remoteInfo = RestKit;
+			remoteGlobalIDString = 552D918B1753F8EF00BE3FEA;
+			remoteInfo = FlickrKit;
 		};
 		CF801ADE1ADF83A9006E4054 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -53,14 +46,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CF6512231AE24C2300EEDE0A /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = "RestKit-0.20.3/RestKit.xcodeproj"; sourceTree = "<group>"; };
 		CF6512371AE2509000EEDE0A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CF6512391AE2509700EEDE0A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		CF6512401AE2F4C700EEDE0A /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
-		CF6512411AE2F4C700EEDE0A /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
-		CF6512441AE303AF00EEDE0A /* FlickrRestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrRestClient.h; sourceTree = "<group>"; };
-		CF6512451AE303AF00EEDE0A /* FlickrRestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrRestClient.m; sourceTree = "<group>"; };
+		CF6512441AE303AF00EEDE0A /* FlickrClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrClient.h; sourceTree = "<group>"; };
+		CF6512451AE303AF00EEDE0A /* FlickrClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrClient.m; sourceTree = "<group>"; };
 		CF6512481AE303FD00EEDE0A /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		CF65124D1AE30ED700EEDE0A /* FlickrKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FlickrKit.xcodeproj; path = "FlickrKit-1.0.5/FlickrKit.xcodeproj"; sourceTree = "<group>"; };
+		CF65125C1AE3120D00EEDE0A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		CF801AC41ADF83A9006E4054 /* Flickster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flickster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF801AC81ADF83A9006E4054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF801AC91ADF83A9006E4054 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -81,9 +73,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF65125D1AE3120D00EEDE0A /* AssetsLibrary.framework in Frameworks */,
+				CF65125B1AE3114900EEDE0A /* libFlickrKit.a in Frameworks */,
 				CF65123B1AE250BA00EEDE0A /* MobileCoreServices.framework in Frameworks */,
 				CF6512381AE2509000EEDE0A /* SystemConfiguration.framework in Frameworks */,
-				CF6512331AE24C7D00EEDE0A /* libRestKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,28 +90,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CF6512241AE24C2300EEDE0A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				CF6512291AE24C2400EEDE0A /* libRestKit.a */,
-				CF65122B1AE24C2400EEDE0A /* RestKit.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		CF65123C1AE252C400EEDE0A /* libs */ = {
 			isa = PBXGroup;
 			children = (
 				CF6512391AE2509700EEDE0A /* MobileCoreServices.framework */,
 				CF6512371AE2509000EEDE0A /* SystemConfiguration.framework */,
-				CF6512231AE24C2300EEDE0A /* RestKit.xcodeproj */,
+				CF65124D1AE30ED700EEDE0A /* FlickrKit.xcodeproj */,
 			);
 			name = libs;
+			sourceTree = "<group>";
+		};
+		CF65124E1AE30ED700EEDE0A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CF6512521AE30ED700EEDE0A /* libFlickrKit.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		CF801ABB1ADF83A9006E4054 = {
 			isa = PBXGroup;
 			children = (
+				CF65125C1AE3120D00EEDE0A /* AssetsLibrary.framework */,
 				CF65123C1AE252C400EEDE0A /* libs */,
 				CF801AC61ADF83A9006E4054 /* Flickster */,
 				CF801AE01ADF83A9006E4054 /* FlicksterTests */,
@@ -140,13 +133,11 @@
 			children = (
 				CF801ACB1ADF83A9006E4054 /* AppDelegate.h */,
 				CF801ACC1ADF83A9006E4054 /* AppDelegate.m */,
-				CF6512441AE303AF00EEDE0A /* FlickrRestClient.h */,
-				CF6512451AE303AF00EEDE0A /* FlickrRestClient.m */,
+				CF6512441AE303AF00EEDE0A /* FlickrClient.h */,
+				CF6512451AE303AF00EEDE0A /* FlickrClient.m */,
 				CF801AD41ADF83A9006E4054 /* Images.xcassets */,
 				CF801AD61ADF83A9006E4054 /* LaunchScreen.xib */,
 				CF801AD11ADF83A9006E4054 /* Main.storyboard */,
-				CF6512401AE2F4C700EEDE0A /* Photo.h */,
-				CF6512411AE2F4C700EEDE0A /* Photo.m */,
 				CF6512481AE303FD00EEDE0A /* Singleton.h */,
 				CF801AC71ADF83A9006E4054 /* Supporting Files */,
 				CF801ACE1ADF83A9006E4054 /* ViewController.h */,
@@ -195,7 +186,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				CF6512321AE24C7900EEDE0A /* PBXTargetDependency */,
+				CF6512581AE3114200EEDE0A /* PBXTargetDependency */,
 			);
 			name = Flickster;
 			productName = Flickster;
@@ -251,8 +242,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = CF6512241AE24C2300EEDE0A /* Products */;
-					ProjectRef = CF6512231AE24C2300EEDE0A /* RestKit.xcodeproj */;
+					ProductGroup = CF65124E1AE30ED700EEDE0A /* Products */;
+					ProjectRef = CF65124D1AE30ED700EEDE0A /* FlickrKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -264,18 +255,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		CF6512291AE24C2400EEDE0A /* libRestKit.a */ = {
+		CF6512521AE30ED700EEDE0A /* libFlickrKit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libRestKit.a;
-			remoteRef = CF6512281AE24C2400EEDE0A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CF65122B1AE24C2400EEDE0A /* RestKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RestKit.framework;
-			remoteRef = CF65122A1AE24C2400EEDE0A /* PBXContainerItemProxy */;
+			path = libFlickrKit.a;
+			remoteRef = CF6512511AE30ED700EEDE0A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -305,8 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF6512421AE2F4C700EEDE0A /* Photo.m in Sources */,
-				CF6512461AE303AF00EEDE0A /* FlickrRestClient.m in Sources */,
+				CF6512461AE303AF00EEDE0A /* FlickrClient.m in Sources */,
 				CF801AD01ADF83A9006E4054 /* ViewController.m in Sources */,
 				CF801ACD1ADF83A9006E4054 /* AppDelegate.m in Sources */,
 				CF801ACA1ADF83A9006E4054 /* main.m in Sources */,
@@ -324,10 +307,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		CF6512321AE24C7900EEDE0A /* PBXTargetDependency */ = {
+		CF6512581AE3114200EEDE0A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = RestKit;
-			targetProxy = CF6512311AE24C7900EEDE0A /* PBXContainerItemProxy */;
+			name = FlickrKit;
+			targetProxy = CF6512571AE3114200EEDE0A /* PBXContainerItemProxy */;
 		};
 		CF801ADF1ADF83A9006E4054 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -443,8 +426,8 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"RestKit-0.20.3/**",
+					"FlickrKit-1.0.5/**",
 				);
 				INFOPLIST_FILE = Flickster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -459,8 +442,8 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"RestKit-0.20.3/**",
+					"FlickrKit-1.0.5/**",
 				);
 				INFOPLIST_FILE = Flickster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

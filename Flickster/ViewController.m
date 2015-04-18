@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "FlickrRestClient.h"
+#import "FlickrClient.h"
 #import "Photo.h"
 
 @interface ViewController ()
@@ -19,7 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[FlickrRestClient sharedInstance] getPhotosAsync:^(NSArray *photos, NSError *error)
+    [[FlickrClient sharedInstance] getPhotosAsync:^(NSArray *photos, NSError *error)
     {
         for (Photo *photo in photos)
         {

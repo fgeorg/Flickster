@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "FlickrRestClient.h"
+#import "FlickrClient.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +17,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[FlickrRestClient sharedInstance] setup];
+    [[FlickrClient sharedInstance] setup];
+
     // Override point for customization after application launch.
     return YES;
 }
