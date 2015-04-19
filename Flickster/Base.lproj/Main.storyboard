@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="nd6-sQ-J4R">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
@@ -8,11 +8,11 @@
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_mountain.jpg" id="jpE-VJ-xDB">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_mountain.jpg" id="jpE-VJ-xDB">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -20,63 +20,52 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OKR-DI-kmQ">
+                                        <rect key="frame" x="100" y="230" width="120" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="0.82000000000000006" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="flickr login">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onLoginPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="je2-vy-Ebq"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="logged in as udifhso345" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="NPd-uT-3QN">
+                                        <rect key="frame" x="54" y="205" width="213" height="17"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GuS-Ck-oTr">
-                                        <rect key="frame" x="102" y="319" width="117" height="55"/>
+                                        <rect key="frame" x="100" y="364" width="120" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="0.81999999999999995" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="My Photos">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="LlL-qx-sKJ" kind="modal" id="WTl-j1-UoW"/>
+                                            <segue destination="LlL-qx-sKJ" kind="push" id="WTl-j1-UoW"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </view>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" id="3fN-hw-wI4" userLabel="Header">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="W9T-ZT-DdP">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="logged in as udifhso345" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="NPd-uT-3QN">
-                                            <rect key="frame" x="8" y="51" width="213" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OKR-DI-kmQ">
-                                            <rect key="frame" x="8" y="22" width="89" height="28"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" white="1" alpha="0.82000000000000006" colorSpace="calibratedWhite"/>
-                                            <state key="normal" title="flickr login">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="onLoginPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="je2-vy-Ebq"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="uT5-aa-Vdj"/>
                     <connections>
                         <outlet property="contentView" destination="1uP-3S-zPh" id="UH8-8Q-O5x"/>
-                        <outlet property="headerView" destination="3fN-hw-wI4" id="Duo-ae-yOo"/>
                         <outlet property="loginButton" destination="OKR-DI-kmQ" id="jjR-Aa-GeH"/>
                         <outlet property="loginStateLabel" destination="NPd-uT-3QN" id="OGV-Bx-4XO"/>
                         <outlet property="myPhotosButton" destination="GuS-Ck-oTr" id="MIo-bI-CJ0"/>
-                        <segue destination="dqb-cU-gvh" kind="modal" identifier="showLoginView" id="ybz-FB-4o8"/>
+                        <segue destination="dqb-cU-gvh" kind="push" identifier="showLoginView" id="ybz-FB-4o8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-15" y="321"/>
+            <point key="canvasLocation" x="517" y="321"/>
         </scene>
         <!--Photos View Controller-->
         <scene sceneID="d1j-92-G6i">
@@ -98,33 +87,11 @@
                                     <outlet property="delegate" destination="LlL-qx-sKJ" id="mdk-wR-VUY"/>
                                 </connections>
                             </scrollView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" id="4Zz-G3-i2k" userLabel="Header">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="KNV-94-5mk">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="97f-Dh-haX">
-                                            <rect key="frame" x="204" y="25" width="108" height="37"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" white="1" alpha="0.81999999999999995" colorSpace="calibratedWhite"/>
-                                            <state key="normal" title="back">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="onBackPressed:" destination="LlL-qx-sKJ" eventType="touchUpInside" id="cAf-aL-H67"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="P8x-xn-yNx"/>
                     <connections>
-                        <outlet property="backButton" destination="97f-Dh-haX" id="7Yb-yd-3Rk"/>
                         <outlet property="scrollView" destination="uDP-xt-vv1" id="UiF-kb-fUd"/>
                     </connections>
                 </viewController>
@@ -136,10 +103,14 @@
         <scene sceneID="dAp-Xo-elm">
             <objects>
                 <viewController id="dqb-cU-gvh" customClass="LoginWebViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Cae-qh-Mlv">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="Cae-qh-Mlv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_blue.jpg" id="Q2V-cj-Zan">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="1EM-Ji-PVr">
                                 <rect key="frame" x="142" y="265" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -151,42 +122,39 @@
                                     <outlet property="delegate" destination="dqb-cU-gvh" id="peH-j5-AkW"/>
                                 </connections>
                             </webView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" id="rvg-mV-3JL" userLabel="Header">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="uht-WA-MGI">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Xm5-Yz-zMH">
-                                            <rect key="frame" x="225" y="22" width="87" height="40"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" white="1" alpha="0.81999999999999995" colorSpace="calibratedWhite"/>
-                                            <state key="normal" title="back">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="onBackPressed:" destination="dqb-cU-gvh" eventType="touchUpInside" id="vTD-LG-ynU"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
                         </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="a4S-if-jpq"/>
                     <connections>
-                        <outlet property="backButton" destination="Xm5-Yz-zMH" id="VJz-qK-1ne"/>
-                        <outlet property="headerView" destination="rvg-mV-3JL" id="atN-Wc-shu"/>
                         <outlet property="webView" destination="UqT-qu-0Gh" id="8zz-hd-eF4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7nF-yd-dky" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="391" y="321"/>
+            <point key="canvasLocation" x="889" y="321"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gZr-mk-dhh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nd6-sQ-J4R" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fu6-tm-aoH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="WPu-Ov-BOr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="byJ-W3-cYC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-15" y="321"/>
         </scene>
     </scenes>
     <resources>
+        <image name="background_blue.jpg" width="640" height="1136"/>
         <image name="background_mountain.jpg" width="640" height="1136"/>
         <image name="background_stone.jpg" width="640" height="1136"/>
     </resources>

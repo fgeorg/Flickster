@@ -15,7 +15,6 @@
 @interface LoginWebViewController ()
 
 @property (nonatomic, retain) FKDUNetworkOperation *authOp;
-@property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 
 @end
@@ -25,8 +24,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.backButton.layer.cornerRadius = 8;
-    self.webView.scrollView.contentInset = UIEdgeInsetsMake(self.headerView.frame.size.height, 0, 0, 0);
+    CGRect navBarFrame = self.navigationController.navigationBar.frame;
+    self.webView.scrollView.contentInset = UIEdgeInsetsMake(navBarFrame.origin.y + navBarFrame.size.height, 0, 0, 0);
     self.webView.alpha = 0;
     // This must be defined in your Info.plist
     // Flickr will call this back. Ensure you configure your flickr app as a web app
@@ -65,7 +64,6 @@
             self.webView.alpha = 1;
         }];
     });
-
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -76,12 +74,7 @@
 
 - (void)onLoginCompleted
 {
-    [self dismissViewControllerAnimated:YES completion:nil];   
-}
-
-- (IBAction)onBackPressed:(id)sender
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
@@ -95,7 +88,7 @@
     // If they click NO DONT AUTHORIZE, this is where it takes you by default... maybe take them to my own web site, or show something else
 
     NSURL *url = [request URL];
-    NSLog(@"url: %@ %@", url, request.HTTPMethod);
+//    NSLog(@"url: %@ %@", url, request.HTTPMethod);
 	// If it's the callback url, then lets trigger that
     if (![url.scheme isEqual:@"http"] && ![url.scheme isEqual:@"https"]) {
         if ([[UIApplication sharedApplication]canOpenURL:url]) {

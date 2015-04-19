@@ -16,7 +16,6 @@
 @interface PhotosViewController()
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, assign) BOOL outOfPages;
 @property (nonatomic, assign) NSInteger currentPage;
@@ -29,13 +28,10 @@
 
 - (void)viewDidLoad
 {
-    self.backButton.layer.cornerRadius = 8;
-    [self loadNextPage];
-}
+    CGRect navBarFrame = self.navigationController.navigationBar.frame;
+    self.scrollView.contentInset = UIEdgeInsetsMake(navBarFrame.origin.y + navBarFrame.size.height, 0, 0, 0);
 
-- (IBAction)onBackPressed:(id)sender
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self loadNextPage];
 }
 
 - (void)addImageToViewWithURL:(NSURL *)url
@@ -44,13 +40,16 @@
     CGFloat height = width;
     CGFloat x = kThumbnailPadding + (width + kThumbnailPadding) * self.currentXIndex;
     CGFloat y = self.currentYOffset + kThumbnailPadding;
+
+//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, width, height)];
+
+    UIButton *thumbnailButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    thumbnailButton.frame = CGRectMake(x, y, width, height);
+    thumbnailButton.alpha = 0;
+    thumbnailButton.layer.cornerRadius = 8;
+    thumbnailButton.clipsToBounds = YES;
     
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, width, height)];
-    imageView.alpha = 0;
-    imageView.layer.cornerRadius = 8;
-    imageView.clipsToBounds = YES;
-    
-    [self.scrollView addSubview:imageView];
+    [self.scrollView addSubview:thumbnailButton];
     
     self.currentXIndex++;
     if (self.currentXIndex >= kThumbnailsPerRow)
@@ -64,9 +63,9 @@
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
      {
          UIImage *image = [[UIImage alloc] initWithData:data];
-         [imageView setImage:image];
+         [thumbnailButton setImage:image forState:UIControlStateNormal];
          [UIView animateWithDuration:.3f animations:^{
-             imageView.alpha = 1;
+             thumbnailButton.alpha = 1;
          }];
      }];
     
@@ -79,7 +78,6 @@
         return;
     }
     self.isLoading = YES;
-    NSLog(@"loading next page...");
     if ([[FlickrClient sharedInstance] isAuthorized])
     {
         [[FlickrClient sharedInstance] getPhotosAsync:^(NSArray *photos, NSError *error)

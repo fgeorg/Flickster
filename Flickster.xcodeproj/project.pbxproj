@@ -23,6 +23,7 @@
 		CF801AD51ADF83A9006E4054 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF801AD41ADF83A9006E4054 /* Images.xcassets */; };
 		CF801AD81ADF83A9006E4054 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF801AD61ADF83A9006E4054 /* LaunchScreen.xib */; };
 		CF801AE41ADF83A9006E4054 /* FlicksterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF801AE31ADF83A9006E4054 /* FlicksterTests.m */; };
+		CFF0C4AD1AE3BCFA00C8B750 /* background_blue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CFF0C4AC1AE3BCFA00C8B750 /* background_blue.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		CF801ADD1ADF83A9006E4054 /* FlicksterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlicksterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF801AE21ADF83A9006E4054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF801AE31ADF83A9006E4054 /* FlicksterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlicksterTests.m; sourceTree = "<group>"; };
+		CFF0C4AC1AE3BCFA00C8B750 /* background_blue.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background_blue.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 		CF6512781AE3696300EEDE0A /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				CFF0C4AC1AE3BCFA00C8B750 /* background_blue.jpg */,
 				CF65127A1AE3696300EEDE0A /* background_mountain.jpg */,
 				CF65127B1AE3696300EEDE0A /* background_stone.jpg */,
 			);
@@ -304,6 +307,7 @@
 				CF65127E1AE3696300EEDE0A /* background_stone.jpg in Resources */,
 				CF801AD31ADF83A9006E4054 /* Main.storyboard in Resources */,
 				CF801AD81ADF83A9006E4054 /* LaunchScreen.xib in Resources */,
+				CFF0C4AD1AE3BCFA00C8B750 /* background_blue.jpg in Resources */,
 				CF65127D1AE3696300EEDE0A /* background_mountain.jpg in Resources */,
 				CF801AD51ADF83A9006E4054 /* Images.xcassets in Resources */,
 			);
