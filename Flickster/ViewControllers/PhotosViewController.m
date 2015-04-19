@@ -9,15 +9,19 @@
 #import "PhotosViewController.h"
 #import "FlickrClient.h"
 
-#define kPadding 10;
+#define kThumbnailPadding 10
+#define kThumbnailsPerRow 3
+#define kImagesPerPage 15
 
 @interface PhotosViewController()
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
-@property (weak, nonatomic) IBOutlet UILabel *loadingLabel;
-@property (nonatomic, assign) BOOL didPullDown;
+@property (nonatomic, assign) BOOL isLoading;
+@property (nonatomic, assign) BOOL outOfPages;
 @property (nonatomic, assign) NSInteger currentPage;
+@property (nonatomic, assign) NSInteger currentXIndex;
+@property (nonatomic, assign) NSInteger currentYOffset;
 
 @end
 
@@ -26,7 +30,6 @@
 - (void)viewDidLoad
 {
     self.backButton.layer.cornerRadius = 8;
-    self.loadingLabel.hidden = YES;
     [self loadNextPage];
 }
 
@@ -35,57 +38,75 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void) addImageToView:(UIImage *)image {
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+- (void)addImageToViewWithURL:(NSURL *)url
+{
+    CGFloat width = (self.scrollView.frame.size.width - (1 + kThumbnailsPerRow) * kThumbnailPadding) / kThumbnailsPerRow;
+    CGFloat height = width;
+    CGFloat x = kThumbnailPadding + (width + kThumbnailPadding) * self.currentXIndex;
+    CGFloat y = self.currentYOffset + kThumbnailPadding;
     
-    CGFloat width = 150;//CGRectGetWidth(self.scrollView.frame);
-    CGFloat imageRatio = image.size.width / image.size.height;
-    CGFloat height = width / imageRatio;
-    CGFloat x = kPadding;
-    CGFloat y = self.scrollView.contentSize.height + kPadding;
-    
-    imageView.frame = CGRectMake(x, y, width, height);
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, width, height)];
+    imageView.alpha = 0;
     imageView.layer.cornerRadius = 8;
     imageView.clipsToBounds = YES;
-    CGFloat newHeight = self.scrollView.contentSize.height + height + kPadding;
-    self.scrollView.contentSize = CGSizeMake(320, newHeight);
     
     [self.scrollView addSubview:imageView];
+    
+    self.currentXIndex++;
+    if (self.currentXIndex >= kThumbnailsPerRow)
+    {
+        self.currentXIndex = 0;
+        self.currentYOffset += height + kThumbnailPadding;
+        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.currentYOffset + 2 * kThumbnailPadding + height);
+    }
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+     {
+         UIImage *image = [[UIImage alloc] initWithData:data];
+         [imageView setImage:image];
+         [UIView animateWithDuration:.3f animations:^{
+             imageView.alpha = 1;
+         }];
+     }];
     
 }
 
 - (void)loadNextPage
 {
+    if (self.isLoading || self.outOfPages)
+    {
+        return;
+    }
+    self.isLoading = YES;
+    NSLog(@"loading next page...");
     if ([[FlickrClient sharedInstance] isAuthorized])
     {
-        [[FlickrClient sharedInstance] getPhotosAsync:^(NSArray *photos, NSError *error) {
-            self.didPullDown = NO;
-            self.loadingLabel.hidden = YES;
+        [[FlickrClient sharedInstance] getPhotosAsync:^(NSArray *photos, NSError *error)
+        {
             if (error)
             {
                 NSLog(@"Error while trying to view photos: %@", error.localizedDescription);
             }
             else
             {
+                if ([photos count] < kImagesPerPage)
+                {
+                    self.outOfPages = YES;
+                }
                 for (NSURL *url in photos)
                 {
-                    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-                    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
-                    {
-                        UIImage *image = [[UIImage alloc] initWithData:data];
-                        [self addImageToView:image];
-                    }];
+                    [self addImageToViewWithURL:url];
                 }
                 self.currentPage++;
             }
-        } page:self.currentPage];
+            self.isLoading = NO;
+        }  pageSize:kImagesPerPage pageOffset:self.currentPage];
     }
     else
     {
         NSLog(@"Error: Not logged in while viewing photos!");
     }
-    
-    self.loadingLabel.hidden = NO;
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -94,9 +115,8 @@
 {
     CGFloat bottomOffset = scrollView.contentSize.height - scrollView.frame.size.height;
     
-    if (!self.didPullDown && scrollView.contentOffset.y > bottomOffset + 50)
+    if (scrollView.contentOffset.y > bottomOffset - 500)
     {
-        self.didPullDown = YES;
         [self loadNextPage];
     }
 }

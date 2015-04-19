@@ -26,11 +26,11 @@ SingletonImplementation
     [[FlickrKit sharedFlickrKit] initializeWithAPIKey:kFlickrAPIKey sharedSecret:kFlickrAPISecret];
 }
 
-- (void)getPhotosAsync:(void(^)(NSArray *, NSError *))completionBlock page:(NSInteger)page
+- (void)getPhotosAsync:(void(^)(NSArray *, NSError *))completionBlock pageSize:(NSInteger)pageSize pageOffset:(NSInteger)pageOffset
 {
     NSDictionary *args = @{@"user_id": self.userId,
-                           @"per_page": @"15",
-                           @"page": [NSString stringWithFormat:@"%zi", page + 1]
+                           @"per_page": [NSString stringWithFormat:@"%zi", pageSize],
+                           @"page": [NSString stringWithFormat:@"%zi", pageOffset + 1]
     };
     [[FlickrKit sharedFlickrKit] call:@"flickr.photos.search" args:args maxCacheAge:FKDUMaxAgeNeverCache completion:^(NSDictionary *response, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -39,7 +39,7 @@ SingletonImplementation
                 NSMutableArray *photoURLs = [NSMutableArray array];
                 for (NSDictionary *photoDictionary in [response valueForKeyPath:@"photos.photo"])
                 {
-                    NSURL *url = [[FlickrKit sharedFlickrKit] photoURLForSize:FKPhotoSizeThumbnail100 fromPhotoDictionary:photoDictionary];
+                    NSURL *url = [[FlickrKit sharedFlickrKit] photoURLForSize:FKPhotoSizeLargeSquare150 fromPhotoDictionary:photoDictionary];
                     [photoURLs addObject:url];
                 }
                 completionBlock(photoURLs, nil);

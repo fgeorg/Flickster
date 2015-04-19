@@ -109,20 +109,13 @@
                                             <rect key="frame" x="204" y="25" width="108" height="37"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="0.81999999999999995" colorSpace="calibratedWhite"/>
-                                            <state key="normal" title="Back">
+                                            <state key="normal" title="back">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
                                                 <action selector="onBackPressed:" destination="LlL-qx-sKJ" eventType="touchUpInside" id="cAf-aL-H67"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kLa-Y3-w2X">
-                                            <rect key="frame" x="66" y="33" width="77" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                 </view>
                                 <blurEffect style="light"/>
@@ -132,7 +125,6 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="97f-Dh-haX" id="7Yb-yd-3Rk"/>
-                        <outlet property="loadingLabel" destination="kLa-Y3-w2X" id="9kC-ba-x30"/>
                         <outlet property="scrollView" destination="uDP-xt-vv1" id="UiF-kb-fUd"/>
                     </connections>
                 </viewController>
