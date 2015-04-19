@@ -23,9 +23,9 @@
 
 - (void)logout;
 
-@property (nonatomic, copy) NSString *userName;
-@property (nonatomic, copy) NSString *userId;
-@property (nonatomic, copy) NSString *fullName;
+@property (nonatomic, copy, readonly) NSString *userName;
+@property (nonatomic, copy, readonly) NSString *userId;
+@property (nonatomic, copy, readonly) NSString *fullName;
 
 
 @end

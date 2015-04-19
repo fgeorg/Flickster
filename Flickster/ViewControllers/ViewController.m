@@ -12,6 +12,7 @@
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIButton *myPhotosButton;
 @property (weak, nonatomic) IBOutlet UILabel *loginStateLabel;
 
 @end
@@ -21,6 +22,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.loginButton.layer.cornerRadius = 8;
+    self.myPhotosButton.layer.cornerRadius = 8;
 
     [[FlickrClient sharedInstance] checkAuthorization];
 }
@@ -60,11 +64,13 @@
     {
         [self.loginButton setTitle:@"Logout" forState:UIControlStateNormal];
         self.loginStateLabel.text = [NSString stringWithFormat:@"You are logged in as %@", [FlickrClient sharedInstance].userName];
+        self.self.myPhotosButton.hidden = NO;
     }
     else
     {
         [self.loginButton setTitle:@"Login" forState:UIControlStateNormal];
         self.loginStateLabel.text = @"";
+        self.self.myPhotosButton.hidden = YES;
     }
 }
 
@@ -73,13 +79,11 @@
 - (void) userLoggedIn
 {
     [self updateView];
-
 }
 
 - (void) userLoggedOut
 {
     [self updateView];
-
 }
 
 - (void)didReceiveMemoryWarning
