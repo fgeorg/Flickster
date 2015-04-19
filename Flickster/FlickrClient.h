@@ -23,6 +23,8 @@
 
 - (void)checkAuthorization;
 
+- (void)beginAuthWithCompletion:(void (^)(NSURL *, NSError *))callback;
+
 - (void)completeAuthWithURL:(NSURL *)url;
 
 - (void)logout;
@@ -30,6 +32,5 @@
 @property (nonatomic, copy, readonly) NSString *userName;
 @property (nonatomic, copy, readonly) NSString *userId;
 @property (nonatomic, copy, readonly) NSString *fullName;
-
 
 @end

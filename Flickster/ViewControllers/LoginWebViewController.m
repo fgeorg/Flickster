@@ -10,11 +10,10 @@
 //
 
 #import "LoginWebViewController.h"
-#import "FlickrKit.h"
+#import "FlickrClient.h"
 
 @interface LoginWebViewController ()
 
-@property (nonatomic, retain) FKDUNetworkOperation *authOp;
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 
 @end
@@ -27,24 +26,19 @@
     CGRect navBarFrame = self.navigationController.navigationBar.frame;
     self.webView.scrollView.contentInset = UIEdgeInsetsMake(navBarFrame.origin.y + navBarFrame.size.height, 0, 0, 0);
     self.webView.alpha = 0;
-    // This must be defined in your Info.plist
-    // Flickr will call this back. Ensure you configure your flickr app as a web app
-    NSString *callbackURLString = @"flickster://auth";
-    
+
     // Begin the authentication process
-    self.authOp = [[FlickrKit sharedFlickrKit] beginAuthWithCallbackURL:[NSURL URLWithString:callbackURLString] permission:FKPermissionDelete completion:^(NSURL *flickrLoginPageURL, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (!error)
-            {
-                NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:flickrLoginPageURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30];
-                [self.webView loadRequest:urlRequest];
-            }
-            else
-            {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-                [alert show];
-            }
-        });		
+    [[FlickrClient sharedInstance] beginAuthWithCompletion:^(NSURL *flickrLoginPageURL, NSError *error) {
+        if (!error)
+        {
+            NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:flickrLoginPageURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30];
+            [self.webView loadRequest:urlRequest];
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
     }];
 }
 
@@ -82,20 +76,18 @@
 - (void) viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.authOp cancel];
-    [super viewWillDisappear:animated];
 }
 
 #pragma mark - Web View
 
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    // If they click NO DONT AUTHORIZE, this is where it takes you by default... maybe take them to my own web site, or show something else
-
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
     NSURL *url = [request URL];
-//    NSLog(@"url: %@ %@", url, request.HTTPMethod);
-	// If it's the callback url, then lets trigger that
-    if (![url.scheme isEqual:@"http"] && ![url.scheme isEqual:@"https"]) {
-        if ([[UIApplication sharedApplication]canOpenURL:url]) {
+    if (![url.scheme isEqual:@"http"] && ![url.scheme isEqual:@"https"])
+    {
+        if ([[UIApplication sharedApplication]canOpenURL:url])
+        {
+            // this is a flickster://auth call. open it using the AppDelegate
             [[UIApplication sharedApplication]openURL:url];
             return NO;
         }

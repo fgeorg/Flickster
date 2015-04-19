@@ -11,6 +11,9 @@
 
 #define kFlickrAPIKey @"1676e2e07c9149dbe50447363de1a39a"
 #define kFlickrAPISecret @"1648b500ed901740"
+// This must be defined in your Info.plist
+// Flickr will call this back. Ensure you configure your flickr app as a web app
+#define kFlickrAuthURLScheme @"flickster://auth"
 
 @interface FlickrClient()
 @property (nonatomic, copy, readwrite) NSString *userName;
@@ -67,32 +70,9 @@ SingletonImplementation
     return [[FlickrKit sharedFlickrKit] photoURLForSize:FKPhotoSizeMedium800 fromPhotoDictionary:photoDictionary];
 }
 
-- (void)completeAuthWithURL:(NSURL *)url
+- (BOOL)isAuthorized
 {
-    [[FlickrKit sharedFlickrKit] completeAuthWithURL:url completion:^(NSString *userName, NSString *userId, NSString *fullName, NSError *error)
-    {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (!error)
-            {
-                self.userName = userName;
-                self.userId = userId;
-                self.fullName = fullName;
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"FlickrUserLoggedIn" object:nil userInfo:nil];
-            } else
-            {
-                NSLog(@"Error occured during authentication: %@", error.localizedDescription);
-                
-                NSString *errorMessage = error.localizedDescription;
-                if ([errorMessage isEqualToString:@"oauth_problem=token_rejected"])
-                {
-                    errorMessage = @"Login failed temporarily because of a bad access token. It should work if you try again.";
-                }
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!" message:errorMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-                [alert show];                
-                [self logout];
-            }
-        });
-    }];
+    return [[FlickrKit sharedFlickrKit] isAuthorized];
 }
 
 - (void)checkAuthorization
@@ -113,9 +93,50 @@ SingletonImplementation
     }];
 }
 
-- (BOOL)isAuthorized
+- (void)beginAuthWithCompletion:(void (^)(NSURL *, NSError *))callback
 {
-    return [[FlickrKit sharedFlickrKit] isAuthorized];
+    [[FlickrKit sharedFlickrKit] beginAuthWithCallbackURL:[NSURL URLWithString:kFlickrAuthURLScheme]
+                                               permission:FKPermissionRead
+                                               completion:^(NSURL *flickrLoginPageURL, NSError *error) {
+                                                   dispatch_async(dispatch_get_main_queue(), ^{
+                                                       if (error)
+                                                       {
+                                                           callback(nil, error);
+                                                       }
+                                                       else
+                                                       {
+                                                           callback(flickrLoginPageURL, nil);
+                                                       }
+                                                   });
+                                               }];
+}
+
+- (void)completeAuthWithURL:(NSURL *)url
+{
+    [[FlickrKit sharedFlickrKit] completeAuthWithURL:url completion:^(NSString *userName, NSString *userId, NSString *fullName, NSError *error)
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!error)
+            {
+                self.userName = userName;
+                self.userId = userId;
+                self.fullName = fullName;
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"FlickrUserLoggedIn" object:nil userInfo:nil];
+            } else
+            {
+                NSLog(@"Error occured during authentication: %@", error.localizedDescription);
+
+                NSString *errorMessage = error.localizedDescription;
+                if ([errorMessage isEqualToString:@"oauth_problem=token_rejected"])
+                {
+                    errorMessage = @"Login failed temporarily because of a bad access token. It should work if you try again.";
+                }
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!" message:errorMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                [alert show];
+                [self logout];
+            }
+        });
+    }];
 }
 
 - (void)logout
