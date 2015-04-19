@@ -26,7 +26,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+    [super viewDidAppear:animated];
     NSURLRequest *request = [NSURLRequest requestWithURL:[[FlickrClient sharedInstance] imageURLForPhotoDictionary:self.photoDictionary]];
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue mainQueue]
