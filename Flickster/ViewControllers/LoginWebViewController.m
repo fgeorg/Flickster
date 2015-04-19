@@ -31,7 +31,9 @@
     [[FlickrClient sharedInstance] beginAuthWithCompletion:^(NSURL *flickrLoginPageURL, NSError *error) {
         if (!error)
         {
-            NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:flickrLoginPageURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30];
+            NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:flickrLoginPageURL
+                                                                      cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                                  timeoutInterval:30];
             [self.webView loadRequest:urlRequest];
         }
         else
@@ -87,7 +89,7 @@
     {
         if ([[UIApplication sharedApplication]canOpenURL:url])
         {
-            // this is a flickster://auth call. open it using the AppDelegate
+            // this is a "flickster://auth" call. open it using the AppDelegate
             [[UIApplication sharedApplication]openURL:url];
             return NO;
         }

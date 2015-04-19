@@ -11,8 +11,7 @@
 
 #define kFlickrAPIKey @"1676e2e07c9149dbe50447363de1a39a"
 #define kFlickrAPISecret @"1648b500ed901740"
-// This must be defined in your Info.plist
-// Flickr will call this back. Ensure you configure your flickr app as a web app
+// This must be defined in the Info.plist. Ensure you configure your flickr app as a web app
 #define kFlickrAuthURLScheme @"flickster://auth"
 
 @interface FlickrClient()

@@ -18,7 +18,7 @@
 - (BOOL) application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
     NSString *scheme = [url scheme];
-    if([@"flickster" isEqualToString:scheme])
+    if([scheme isEqualToString:@"flickster"])
     {
         [[FlickrClient sharedInstance] completeAuthWithURL:url];
     }

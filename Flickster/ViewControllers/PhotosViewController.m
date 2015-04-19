@@ -37,30 +37,6 @@
     [self loadNextPage];
 }
 
-- (void)addThumbnailToViewWithPhotoDictionary:(NSDictionary *)photoDictionary
-{
-    CGFloat width = (self.scrollView.frame.size.width - (1 + kThumbnailsPerRow) * kThumbnailPadding) / kThumbnailsPerRow;
-    CGFloat height = width;
-    CGFloat x = kThumbnailPadding + (width + kThumbnailPadding) * self.currentXIndex;
-    CGFloat y = self.currentYOffset + kThumbnailPadding;
-    
-    PhotoThumbnail *photoThumbnail = [PhotoThumbnail photoThumbnailWithFrame:CGRectMake(x, y, width, height) photoDictionary:photoDictionary];
-    [photoThumbnail downloadImage];
-    
-    [photoThumbnail addTarget:self
-                       action:@selector(onThumbnailPressed:)
-             forControlEvents:UIControlEventTouchUpInside];
-    [self.scrollView addSubview:photoThumbnail];
-    
-    self.currentXIndex++;
-    if (self.currentXIndex >= kThumbnailsPerRow)
-    {
-        self.currentXIndex = 0;
-        self.currentYOffset += height + kThumbnailPadding;
-        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.currentYOffset + 2 * kThumbnailPadding + height);
-    }
-}
-
 - (void)onThumbnailPressed:(PhotoThumbnail *)photoThumbnail
 {
     [self performSegueWithIdentifier:@"ViewPhoto" sender:photoThumbnail];
@@ -100,6 +76,30 @@
         }
         self.isLoading = NO;
     }  pageSize:kImagesPerPage pageOffset:self.currentPage];
+}
+
+- (void)addThumbnailToViewWithPhotoDictionary:(NSDictionary *)photoDictionary
+{
+    CGFloat width = (self.scrollView.frame.size.width - (1 + kThumbnailsPerRow) * kThumbnailPadding) / kThumbnailsPerRow;
+    CGFloat height = width;
+    CGFloat x = kThumbnailPadding + (width + kThumbnailPadding) * self.currentXIndex;
+    CGFloat y = self.currentYOffset + kThumbnailPadding;
+    
+    PhotoThumbnail *photoThumbnail = [PhotoThumbnail photoThumbnailWithFrame:CGRectMake(x, y, width, height) photoDictionary:photoDictionary];
+    [photoThumbnail downloadImage];
+    
+    [photoThumbnail addTarget:self
+                       action:@selector(onThumbnailPressed:)
+             forControlEvents:UIControlEventTouchUpInside];
+    [self.scrollView addSubview:photoThumbnail];
+    
+    self.currentXIndex++;
+    if (self.currentXIndex >= kThumbnailsPerRow)
+    {
+        self.currentXIndex = 0;
+        self.currentYOffset += height + kThumbnailPadding;
+        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.currentYOffset + 2 * kThumbnailPadding + height);
+    }
 }
 
 #pragma mark - UIScrollViewDelegate

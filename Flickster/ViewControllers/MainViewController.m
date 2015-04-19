@@ -1,16 +1,16 @@
 //
-//  ViewController.m
+//  MainViewController.m
 //  Flickster
 //
 //  Created by Francesco Georg on 15/04/15.
 //  Copyright (c) 2015. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MainViewController.h"
 #import "FlickrClient.h"
 
 
-@interface ViewController ()
+@interface MainViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIButton *myPhotosButton;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation ViewController
+@implementation MainViewController
 
 - (void)viewDidLoad
 {
