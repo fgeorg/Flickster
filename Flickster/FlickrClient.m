@@ -124,6 +124,17 @@ SingletonImplementation
     self.userName = nil;
     self.userId = nil;
     self.fullName = nil;
+    
+    // clear cookies from UIWebView
+    NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
+    for (NSHTTPCookie *cookie in cookies)
+    {
+        if ([[cookie domain] rangeOfString:@"flickr.com"].location != NSNotFound)
+        {
+            [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:cookie];
+        }
+    }
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"FlickrUserLoggedOut" object:nil userInfo:nil];
 }
 

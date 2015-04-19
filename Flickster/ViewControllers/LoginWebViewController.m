@@ -60,8 +60,8 @@
 {
     [super viewDidAppear:animated];
     // wait a bit before showing the webview because it looks really ugly when it's loading
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [UIView animateWithDuration:.5 animations:^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:.3 animations:^{
             self.webView.alpha = 1;
         }];
     });
