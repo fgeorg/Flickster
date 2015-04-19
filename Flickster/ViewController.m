@@ -8,9 +8,6 @@
 
 #import "ViewController.h"
 #import "FlickrClient.h"
-#import "FlickrKit.h"
-#import "Photo.h"
-#import "FKAuthViewController.h"
 
 @interface ViewController ()
 
@@ -21,69 +18,68 @@
 
 @implementation ViewController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    [[FlickrClient sharedInstance] checkAuthorization];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLoggedIn) name:@"FlickrUserLoggedIn" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLoggedOut) name:@"FlickrUserLoggedOut" object:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self updateView];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"FlickrUserLoggedIn" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"FlickrUserLoggedOut" object:nil];
+}
+
 - (IBAction)onLoginPressed:(id)sender
 {
-    if ([FlickrKit sharedFlickrKit].isAuthorized) {
-        [[FlickrKit sharedFlickrKit] logout];
-        [self userLoggedOut];
-    } else {
+    if ([[FlickrClient sharedInstance] isAuthorized])
+    {
+        [[FlickrClient sharedInstance] logout];
+    }
+    else
+    {
         [self performSegueWithIdentifier:@"showLoginView" sender:nil];
+    }
+}
+
+- (void)updateView
+{
+    if ([[FlickrClient sharedInstance] isAuthorized])
+    {
+        [self.loginButton setTitle:@"Logout" forState:UIControlStateNormal];
+        self.loginStateLabel.text = [NSString stringWithFormat:@"You are logged in as %@", [FlickrClient sharedInstance].userName];
+    }
+    else
+    {
+        [self.loginButton setTitle:@"Login" forState:UIControlStateNormal];
+        self.loginStateLabel.text = @"";
     }
 }
 
 #pragma mark - Auth
 
-- (void) userAuthenticateCallback:(NSNotification *)notification {
-    NSURL *callbackURL = notification.object;
-    [[FlickrKit sharedFlickrKit] completeAuthWithURL:callbackURL completion:^(NSString *userName, NSString *userId, NSString *fullName, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (!error) {
-                [self userLoggedIn:userName userID:userId];
-            } else {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-                [alert show];
-            }
-            [self dismissViewControllerAnimated:YES completion:nil];
-        });
-    }];
-}
-
-- (void) userLoggedIn:(NSString *)username userID:(NSString *)userID
+- (void) userLoggedIn
 {
-    [self.loginButton setTitle:@"Logout" forState:UIControlStateNormal];
-    self.loginStateLabel.text = [NSString stringWithFormat:@"You are logged in as %@", username];
+    [self updateView];
+
 }
 
-- (void) userLoggedOut {
-    [self.loginButton setTitle:@"Login" forState:UIControlStateNormal];
-    self.loginStateLabel.text = @"Login to flickr";
-}
-
-
-- (void)viewDidLoad
+- (void) userLoggedOut
 {
-    [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userAuthenticateCallback:) name:@"UserAuthCallbackNotification" object:nil];
-    
-//    [[FlickrClient sharedInstance] getPhotosAsync:^(NSArray *photos, NSError *error)
-//    {
-//        for (Photo *photo in photos)
-//        {
-//            NSLog(@"%@", photo.title);
-//        }
-//    }];
-//    
-    // Check if there is a stored token
-    // You should do this once on app launch
-    [[FlickrKit sharedFlickrKit] checkAuthorizationOnCompletion:^(NSString *userName, NSString *userId, NSString *fullName, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (!error) {
-                [self userLoggedIn:userName userID:userId];
-            } else {
-                [self userLoggedOut];
-            }
-        });		
-    }];
+    [self updateView];
+
 }
 
 - (void)didReceiveMemoryWarning

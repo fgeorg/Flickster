@@ -19,5 +19,6 @@ test-reports/*
 DerivedData
 *.xccheckout
 *.xcbkptlist
+*.xcuserstate
 
 Build/

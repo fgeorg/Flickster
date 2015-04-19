@@ -15,4 +15,17 @@
 
 - (void)getPhotosAsync:(void(^)(NSArray *, NSError *))completionBlock;
 
+- (BOOL)isAuthorized;
+
+- (void)checkAuthorization;
+
+- (void)completeAuthWithURL:(NSURL *)url;
+
+- (void)logout;
+
+@property (nonatomic, copy) NSString *userName;
+@property (nonatomic, copy) NSString *userId;
+@property (nonatomic, copy) NSString *fullName;
+
+
 @end

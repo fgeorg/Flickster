@@ -18,8 +18,10 @@
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLoginCompleted) name:@"FlickrUserLoggedIn" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLoginCompleted) name:@"FlickrUserLoggedOut" object:nil];
+    
 	// This must be defined in your Info.plist
-	// See FlickrKitDemo-Info.plist
 	// Flickr will call this back. Ensure you configure your flickr app as a web app
 	NSString *callbackURLString = @"flickster://auth";
 	
@@ -35,6 +37,17 @@
 			}
         });		
 	}];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"FlickrUserLoggedIn" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"FlickrUserLoggedOut" object:nil];
+}
+
+- (void)onLoginCompleted
+{
+    [self dismissViewControllerAnimated:YES completion:nil];   
 }
 
 - (IBAction)onBackPressed:(id)sender
@@ -54,7 +67,6 @@
     //If they click NO DONT AUTHORIZE, this is where it takes you by default... maybe take them to my own web site, or show something else
 	
     NSURL *url = [request URL];
-    
 	// If it's the callback url, then lets trigger that
     if (![url.scheme isEqual:@"http"] && ![url.scheme isEqual:@"https"]) {
         if ([[UIApplication sharedApplication]canOpenURL:url]) {

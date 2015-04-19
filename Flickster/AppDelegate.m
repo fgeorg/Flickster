@@ -15,19 +15,22 @@
 
 @implementation AppDelegate
 
-- (BOOL) application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    
-    // todo: clean this up, don't use notification
+- (BOOL) application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
     NSString *scheme = [url scheme];
     if([@"flickster" isEqualToString:scheme])
     {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"UserAuthCallbackNotification" object:url userInfo:nil];
+        [[FlickrClient sharedInstance] completeAuthWithURL:url];
     }
     return YES;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+//    [[NSURLCache sharedURLCache] removeAllCachedResponses]; // force the webview to start the login process from the beginning
+    NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:0 diskCapacity:0 diskPath:nil];
+    [NSURLCache setSharedURLCache:sharedCache];
+
     [[FlickrClient sharedInstance] setup];
     return YES;
 }
