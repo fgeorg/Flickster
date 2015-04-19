@@ -28,6 +28,11 @@ SingletonImplementation
 
 - (void)getPhotosAsync:(void(^)(NSArray *, NSError *))completionBlock pageSize:(NSInteger)pageSize pageOffset:(NSInteger)pageOffset
 {
+    if (![[FlickrClient sharedInstance] isAuthorized])
+    {
+        NSLog(@"Error: Not logged in while trying to get photos!");
+        return;
+    }
     NSDictionary *args = @{@"user_id": self.userId,
                            @"per_page": [NSString stringWithFormat:@"%zi", pageSize],
                            @"page": [NSString stringWithFormat:@"%zi", pageOffset + 1]
@@ -36,13 +41,12 @@ SingletonImplementation
         dispatch_async(dispatch_get_main_queue(), ^{
             if (response)
             {
-                NSMutableArray *photoURLs = [NSMutableArray array];
+                NSMutableArray *photos = [NSMutableArray array];
                 for (NSDictionary *photoDictionary in [response valueForKeyPath:@"photos.photo"])
                 {
-                    NSURL *url = [[FlickrKit sharedFlickrKit] photoURLForSize:FKPhotoSizeLargeSquare150 fromPhotoDictionary:photoDictionary];
-                    [photoURLs addObject:url];
+                    [photos addObject:photoDictionary];
                 }
-                completionBlock(photoURLs, nil);
+                completionBlock(photos, nil);
             }
             else
             {
@@ -53,6 +57,15 @@ SingletonImplementation
     }];
 }
 
+- (NSURL *)thumbnailURLForPhotoDictionary:(NSDictionary *)photoDictionary
+{
+    return [[FlickrKit sharedFlickrKit] photoURLForSize:FKPhotoSizeLargeSquare150 fromPhotoDictionary:photoDictionary];
+}
+
+- (NSURL *)imageURLForPhotoDictionary:(NSDictionary *)photoDictionary
+{
+    return [[FlickrKit sharedFlickrKit] photoURLForSize:FKPhotoSizeMedium800 fromPhotoDictionary:photoDictionary];
+}
 
 - (void)completeAuthWithURL:(NSURL *)url
 {

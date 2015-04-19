@@ -8,6 +8,8 @@
 
 #import "PhotosViewController.h"
 #import "FlickrClient.h"
+#import "PhotoThumbnail.h"
+#import "OnePhotoViewController.h"
 
 #define kThumbnailPadding 10
 #define kThumbnailsPerRow 3
@@ -30,26 +32,23 @@
 {
     CGRect navBarFrame = self.navigationController.navigationBar.frame;
     self.scrollView.contentInset = UIEdgeInsetsMake(navBarFrame.origin.y + navBarFrame.size.height, 0, 0, 0);
-
+    
     [self loadNextPage];
 }
 
-- (void)addImageToViewWithURL:(NSURL *)url
+- (void)addThumbnailToViewWithPhotoDictionary:(NSDictionary *)photoDictionary
 {
     CGFloat width = (self.scrollView.frame.size.width - (1 + kThumbnailsPerRow) * kThumbnailPadding) / kThumbnailsPerRow;
     CGFloat height = width;
     CGFloat x = kThumbnailPadding + (width + kThumbnailPadding) * self.currentXIndex;
     CGFloat y = self.currentYOffset + kThumbnailPadding;
-
-//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, width, height)];
-
-    UIButton *thumbnailButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    thumbnailButton.frame = CGRectMake(x, y, width, height);
-    thumbnailButton.alpha = 0;
-    thumbnailButton.layer.cornerRadius = 8;
-    thumbnailButton.clipsToBounds = YES;
     
-    [self.scrollView addSubview:thumbnailButton];
+    PhotoThumbnail *photoThumbnail = [PhotoThumbnail photoThumbnailWithFrame:CGRectMake(x, y, width, height) photoDictionary:photoDictionary];
+    
+    [photoThumbnail addTarget:self
+                       action:@selector(onThumbnailPressed:)
+             forControlEvents:UIControlEventTouchUpInside];
+    [self.scrollView addSubview:photoThumbnail];
     
     self.currentXIndex++;
     if (self.currentXIndex >= kThumbnailsPerRow)
@@ -58,17 +57,17 @@
         self.currentYOffset += height + kThumbnailPadding;
         self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.currentYOffset + 2 * kThumbnailPadding + height);
     }
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
-     {
-         UIImage *image = [[UIImage alloc] initWithData:data];
-         [thumbnailButton setImage:image forState:UIControlStateNormal];
-         [UIView animateWithDuration:.3f animations:^{
-             thumbnailButton.alpha = 1;
-         }];
-     }];
-    
+}
+
+- (void)onThumbnailPressed:(PhotoThumbnail *)photoThumbnail
+{
+    [self performSegueWithIdentifier:@"ViewPhoto" sender:photoThumbnail];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(PhotoThumbnail *)photoThumbnail
+{
+    OnePhotoViewController *onePhotoVC = segue.destinationViewController;
+    onePhotoVC.photoDictionary = photoThumbnail.photoDictionary;
 }
 
 - (void)loadNextPage
@@ -78,33 +77,27 @@
         return;
     }
     self.isLoading = YES;
-    if ([[FlickrClient sharedInstance] isAuthorized])
+
+    [[FlickrClient sharedInstance] getPhotosAsync:^(NSArray *photos, NSError *error)
     {
-        [[FlickrClient sharedInstance] getPhotosAsync:^(NSArray *photos, NSError *error)
+        if (error)
         {
-            if (error)
+            NSLog(@"Error while trying to view photos: %@", error.localizedDescription);
+        }
+        else
+        {
+            if ([photos count] < kImagesPerPage)
             {
-                NSLog(@"Error while trying to view photos: %@", error.localizedDescription);
+                self.outOfPages = YES;
             }
-            else
+            for (NSDictionary *dictionary in photos)
             {
-                if ([photos count] < kImagesPerPage)
-                {
-                    self.outOfPages = YES;
-                }
-                for (NSURL *url in photos)
-                {
-                    [self addImageToViewWithURL:url];
-                }
-                self.currentPage++;
+                [self addThumbnailToViewWithPhotoDictionary:dictionary];
             }
-            self.isLoading = NO;
-        }  pageSize:kImagesPerPage pageOffset:self.currentPage];
-    }
-    else
-    {
-        NSLog(@"Error: Not logged in while viewing photos!");
-    }
+            self.currentPage++;
+        }
+        self.isLoading = NO;
+    }  pageSize:kImagesPerPage pageOffset:self.currentPage];
 }
 
 #pragma mark - UIScrollViewDelegate

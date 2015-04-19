@@ -15,6 +15,10 @@
 
 - (void)getPhotosAsync:(void(^)(NSArray *, NSError *))completionBlock pageSize:(NSInteger)pageSize pageOffset:(NSInteger)pageOffset;
 
+- (NSURL *)thumbnailURLForPhotoDictionary:(NSDictionary *)photoDictionary;
+
+- (NSURL *)imageURLForPhotoDictionary:(NSDictionary *)photoDictionary;
+
 - (BOOL)isAuthorized;
 
 - (void)checkAuthorization;

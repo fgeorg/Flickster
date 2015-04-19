@@ -12,7 +12,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_mountain.jpg" id="jpE-VJ-xDB">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_mountain.jpg" id="jpE-VJ-xDB">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -65,7 +65,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="517" y="321"/>
+            <point key="canvasLocation" x="329" y="321"/>
         </scene>
         <!--Photos View Controller-->
         <scene sceneID="d1j-92-G6i">
@@ -93,11 +93,36 @@
                     <navigationItem key="navigationItem" id="P8x-xn-yNx"/>
                     <connections>
                         <outlet property="scrollView" destination="uDP-xt-vv1" id="UiF-kb-fUd"/>
+                        <segue destination="Y9c-JO-oCf" kind="push" identifier="ViewPhoto" id="gEC-Lp-Zj0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lEa-fP-dsC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="197" y="1008"/>
+            <point key="canvasLocation" x="766" y="647"/>
+        </scene>
+        <!--One Photo View Controller-->
+        <scene sceneID="0To-oz-6Wf">
+            <objects>
+                <viewController id="Y9c-JO-oCf" customClass="OnePhotoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bsh-4H-e3Y">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ydh-bK-ExW">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Omb-6d-kK7"/>
+                    <connections>
+                        <outlet property="imageView" destination="ydh-bK-ExW" id="Dne-p4-ESo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dnb-TJ-Gpy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1153" y="647"/>
         </scene>
         <!--Login Web View Controller-->
         <scene sceneID="dAp-Xo-elm">
@@ -132,7 +157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7nF-yd-dky" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="889" y="321"/>
+            <point key="canvasLocation" x="766" y="27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gZr-mk-dhh">

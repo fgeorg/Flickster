@@ -24,6 +24,8 @@
 		CF801AD81ADF83A9006E4054 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF801AD61ADF83A9006E4054 /* LaunchScreen.xib */; };
 		CF801AE41ADF83A9006E4054 /* FlicksterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF801AE31ADF83A9006E4054 /* FlicksterTests.m */; };
 		CFF0C4AD1AE3BCFA00C8B750 /* background_blue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CFF0C4AC1AE3BCFA00C8B750 /* background_blue.jpg */; };
+		CFF0C4B31AE3C32500C8B750 /* PhotoThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF0C4B21AE3C32500C8B750 /* PhotoThumbnail.m */; };
+		CFF0C4B61AE3C41100C8B750 /* OnePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF0C4B51AE3C41100C8B750 /* OnePhotoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,10 @@
 		CF801AE21ADF83A9006E4054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF801AE31ADF83A9006E4054 /* FlicksterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlicksterTests.m; sourceTree = "<group>"; };
 		CFF0C4AC1AE3BCFA00C8B750 /* background_blue.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background_blue.jpg; sourceTree = "<group>"; };
+		CFF0C4B11AE3C32500C8B750 /* PhotoThumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoThumbnail.h; sourceTree = "<group>"; };
+		CFF0C4B21AE3C32500C8B750 /* PhotoThumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoThumbnail.m; sourceTree = "<group>"; };
+		CFF0C4B41AE3C41100C8B750 /* OnePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnePhotoViewController.h; sourceTree = "<group>"; };
+		CFF0C4B51AE3C41100C8B750 /* OnePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnePhotoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +137,8 @@
 				CF6512691AE3386900EEDE0A /* ViewController.m */,
 				CF65126C1AE338C000EEDE0A /* PhotosViewController.h */,
 				CF65126D1AE338C000EEDE0A /* PhotosViewController.m */,
+				CFF0C4B41AE3C41100C8B750 /* OnePhotoViewController.h */,
+				CFF0C4B51AE3C41100C8B750 /* OnePhotoViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -174,6 +182,8 @@
 				CF801ACC1ADF83A9006E4054 /* AppDelegate.m */,
 				CF6512441AE303AF00EEDE0A /* FlickrClient.h */,
 				CF6512451AE303AF00EEDE0A /* FlickrClient.m */,
+				CFF0C4B11AE3C32500C8B750 /* PhotoThumbnail.h */,
+				CFF0C4B21AE3C32500C8B750 /* PhotoThumbnail.m */,
 				CF801AD41ADF83A9006E4054 /* Images.xcassets */,
 				CF6512481AE303FD00EEDE0A /* Singleton.h */,
 				CF801AC71ADF83A9006E4054 /* Supporting Files */,
@@ -327,11 +337,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFF0C4B31AE3C32500C8B750 /* PhotoThumbnail.m in Sources */,
 				CF6512461AE303AF00EEDE0A /* FlickrClient.m in Sources */,
 				CF65126E1AE338C000EEDE0A /* PhotosViewController.m in Sources */,
 				CF801ACD1ADF83A9006E4054 /* AppDelegate.m in Sources */,
 				CF801ACA1ADF83A9006E4054 /* main.m in Sources */,
 				CF65126A1AE3386900EEDE0A /* LoginWebViewController.m in Sources */,
+				CFF0C4B61AE3C41100C8B750 /* OnePhotoViewController.m in Sources */,
 				CF65126B1AE3386900EEDE0A /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
