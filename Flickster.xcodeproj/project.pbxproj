@@ -12,9 +12,11 @@
 		CF6512461AE303AF00EEDE0A /* FlickrClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6512451AE303AF00EEDE0A /* FlickrClient.m */; };
 		CF65125B1AE3114900EEDE0A /* libFlickrKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6512521AE30ED700EEDE0A /* libFlickrKit.a */; };
 		CF65125D1AE3120D00EEDE0A /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF65125C1AE3120D00EEDE0A /* AssetsLibrary.framework */; };
-		CF65126A1AE3386900EEDE0A /* FKAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6512671AE3386900EEDE0A /* FKAuthViewController.m */; };
+		CF65126A1AE3386900EEDE0A /* LoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6512671AE3386900EEDE0A /* LoginWebViewController.m */; };
 		CF65126B1AE3386900EEDE0A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6512691AE3386900EEDE0A /* ViewController.m */; };
 		CF65126E1AE338C000EEDE0A /* PhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF65126D1AE338C000EEDE0A /* PhotosViewController.m */; };
+		CF65127D1AE3696300EEDE0A /* background_mountain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CF65127A1AE3696300EEDE0A /* background_mountain.jpg */; };
+		CF65127E1AE3696300EEDE0A /* background_stone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CF65127B1AE3696300EEDE0A /* background_stone.jpg */; };
 		CF801ACA1ADF83A9006E4054 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF801AC91ADF83A9006E4054 /* main.m */; };
 		CF801ACD1ADF83A9006E4054 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF801ACC1ADF83A9006E4054 /* AppDelegate.m */; };
 		CF801AD31ADF83A9006E4054 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF801AD11ADF83A9006E4054 /* Main.storyboard */; };
@@ -55,12 +57,14 @@
 		CF6512481AE303FD00EEDE0A /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		CF65124D1AE30ED700EEDE0A /* FlickrKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FlickrKit.xcodeproj; path = "FlickrKit-1.0.5/FlickrKit.xcodeproj"; sourceTree = "<group>"; };
 		CF65125C1AE3120D00EEDE0A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		CF6512661AE3386900EEDE0A /* FKAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKAuthViewController.h; sourceTree = "<group>"; };
-		CF6512671AE3386900EEDE0A /* FKAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKAuthViewController.m; sourceTree = "<group>"; };
+		CF6512661AE3386900EEDE0A /* LoginWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWebViewController.h; sourceTree = "<group>"; };
+		CF6512671AE3386900EEDE0A /* LoginWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWebViewController.m; sourceTree = "<group>"; };
 		CF6512681AE3386900EEDE0A /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		CF6512691AE3386900EEDE0A /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CF65126C1AE338C000EEDE0A /* PhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosViewController.h; sourceTree = "<group>"; };
 		CF65126D1AE338C000EEDE0A /* PhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosViewController.m; sourceTree = "<group>"; };
+		CF65127A1AE3696300EEDE0A /* background_mountain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background_mountain.jpg; sourceTree = "<group>"; };
+		CF65127B1AE3696300EEDE0A /* background_stone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background_stone.jpg; sourceTree = "<group>"; };
 		CF801AC41ADF83A9006E4054 /* Flickster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flickster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF801AC81ADF83A9006E4054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF801AC91ADF83A9006E4054 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -119,8 +123,8 @@
 			children = (
 				CF801AD61ADF83A9006E4054 /* LaunchScreen.xib */,
 				CF801AD11ADF83A9006E4054 /* Main.storyboard */,
-				CF6512661AE3386900EEDE0A /* FKAuthViewController.h */,
-				CF6512671AE3386900EEDE0A /* FKAuthViewController.m */,
+				CF6512661AE3386900EEDE0A /* LoginWebViewController.h */,
+				CF6512671AE3386900EEDE0A /* LoginWebViewController.m */,
 				CF6512681AE3386900EEDE0A /* ViewController.h */,
 				CF6512691AE3386900EEDE0A /* ViewController.m */,
 				CF65126C1AE338C000EEDE0A /* PhotosViewController.h */,
@@ -129,9 +133,19 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		CF6512781AE3696300EEDE0A /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				CF65127A1AE3696300EEDE0A /* background_mountain.jpg */,
+				CF65127B1AE3696300EEDE0A /* background_stone.jpg */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
 		CF801ABB1ADF83A9006E4054 = {
 			isa = PBXGroup;
 			children = (
+				CF6512781AE3696300EEDE0A /* assets */,
 				CF65125C1AE3120D00EEDE0A /* AssetsLibrary.framework */,
 				CF65123C1AE252C400EEDE0A /* libs */,
 				CF801AC61ADF83A9006E4054 /* Flickster */,
@@ -287,8 +301,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF65127E1AE3696300EEDE0A /* background_stone.jpg in Resources */,
 				CF801AD31ADF83A9006E4054 /* Main.storyboard in Resources */,
 				CF801AD81ADF83A9006E4054 /* LaunchScreen.xib in Resources */,
+				CF65127D1AE3696300EEDE0A /* background_mountain.jpg in Resources */,
 				CF801AD51ADF83A9006E4054 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,7 +327,7 @@
 				CF65126E1AE338C000EEDE0A /* PhotosViewController.m in Sources */,
 				CF801ACD1ADF83A9006E4054 /* AppDelegate.m in Sources */,
 				CF801ACA1ADF83A9006E4054 /* main.m in Sources */,
-				CF65126A1AE3386900EEDE0A /* FKAuthViewController.m in Sources */,
+				CF65126A1AE3386900EEDE0A /* LoginWebViewController.m in Sources */,
 				CF65126B1AE3386900EEDE0A /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

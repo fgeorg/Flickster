@@ -9,11 +9,14 @@
 #import "ViewController.h"
 #import "FlickrClient.h"
 
+
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIButton *myPhotosButton;
 @property (weak, nonatomic) IBOutlet UILabel *loginStateLabel;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UIView *headerView;
 
 @end
 
@@ -62,13 +65,13 @@
 {
     if ([[FlickrClient sharedInstance] isAuthorized])
     {
-        [self.loginButton setTitle:@"Logout" forState:UIControlStateNormal];
-        self.loginStateLabel.text = [NSString stringWithFormat:@"You are logged in as %@", [FlickrClient sharedInstance].userName];
+        [self.loginButton setTitle:@"logout" forState:UIControlStateNormal];
+        self.loginStateLabel.text = [NSString stringWithFormat:@"logged in as %@", [FlickrClient sharedInstance].userName];
         self.self.myPhotosButton.hidden = NO;
     }
     else
     {
-        [self.loginButton setTitle:@"Login" forState:UIControlStateNormal];
+        [self.loginButton setTitle:@"flickr login" forState:UIControlStateNormal];
         self.loginStateLabel.text = @"";
         self.self.myPhotosButton.hidden = YES;
     }

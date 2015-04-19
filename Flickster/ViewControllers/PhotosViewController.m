@@ -9,6 +9,8 @@
 #import "PhotosViewController.h"
 #import "FlickrClient.h"
 
+#define kPadding 10;
+
 @interface PhotosViewController()
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -36,15 +38,16 @@
 - (void) addImageToView:(UIImage *)image {
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     
-    CGFloat width = 100;//CGRectGetWidth(self.scrollView.frame);
+    CGFloat width = 150;//CGRectGetWidth(self.scrollView.frame);
     CGFloat imageRatio = image.size.width / image.size.height;
     CGFloat height = width / imageRatio;
-    CGFloat x = 0;
-    CGFloat y = self.scrollView.contentSize.height;
+    CGFloat x = kPadding;
+    CGFloat y = self.scrollView.contentSize.height + kPadding;
     
     imageView.frame = CGRectMake(x, y, width, height);
-    
-    CGFloat newHeight = self.scrollView.contentSize.height + height;
+    imageView.layer.cornerRadius = 8;
+    imageView.clipsToBounds = YES;
+    CGFloat newHeight = self.scrollView.contentSize.height + height + kPadding;
     self.scrollView.contentSize = CGSizeMake(320, newHeight);
     
     [self.scrollView addSubview:imageView];
