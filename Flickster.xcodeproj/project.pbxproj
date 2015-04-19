@@ -25,7 +25,7 @@
 		CFF0C4AD1AE3BCFA00C8B750 /* background_blue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CFF0C4AC1AE3BCFA00C8B750 /* background_blue.jpg */; };
 		CFF0C4B31AE3C32500C8B750 /* PhotoThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF0C4B21AE3C32500C8B750 /* PhotoThumbnail.m */; };
 		CFF0C4B61AE3C41100C8B750 /* OnePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF0C4B51AE3C41100C8B750 /* OnePhotoViewController.m */; };
-		CFF0C4B81AE4241200C8B750 /* background_ny.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CFF0C4B71AE4241200C8B750 /* background_ny.jpg */; };
+		CFF0C4BC1AE42B3500C8B750 /* background_light.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CFF0C4BB1AE42B3500C8B750 /* background_light.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +83,7 @@
 		CFF0C4B21AE3C32500C8B750 /* PhotoThumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoThumbnail.m; sourceTree = "<group>"; };
 		CFF0C4B41AE3C41100C8B750 /* OnePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnePhotoViewController.h; sourceTree = "<group>"; };
 		CFF0C4B51AE3C41100C8B750 /* OnePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnePhotoViewController.m; sourceTree = "<group>"; };
-		CFF0C4B71AE4241200C8B750 /* background_ny.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background_ny.jpg; sourceTree = "<group>"; };
+		CFF0C4BB1AE42B3500C8B750 /* background_light.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background_light.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,8 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				CFF0C4AC1AE3BCFA00C8B750 /* background_blue.jpg */,
+				CFF0C4BB1AE42B3500C8B750 /* background_light.jpg */,
 				CF65127A1AE3696300EEDE0A /* background_mountain.jpg */,
-				CFF0C4B71AE4241200C8B750 /* background_ny.jpg */,
 			);
 			path = assets;
 			sourceTree = "<group>";
@@ -316,10 +316,10 @@
 			files = (
 				CF801AD31ADF83A9006E4054 /* Main.storyboard in Resources */,
 				CF801AD81ADF83A9006E4054 /* LaunchScreen.xib in Resources */,
+				CFF0C4BC1AE42B3500C8B750 /* background_light.jpg in Resources */,
 				CFF0C4AD1AE3BCFA00C8B750 /* background_blue.jpg in Resources */,
 				CF65127D1AE3696300EEDE0A /* background_mountain.jpg in Resources */,
 				CF801AD51ADF83A9006E4054 /* Images.xcassets in Resources */,
-				CFF0C4B81AE4241200C8B750 /* background_ny.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -75,15 +75,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_ny.jpg" id="tgX-6S-l7b">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_light.jpg" id="tgX-6S-l7b">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" id="nEX-06-lei" userLabel="plainBackground">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="uDP-xt-vv1">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,7 +92,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="P8x-xn-yNx"/>
                     <connections>
-                        <outlet property="plainBackground" destination="nEX-06-lei" id="9t4-Xb-MCZ"/>
                         <outlet property="scrollView" destination="uDP-xt-vv1" id="UiF-kb-fUd"/>
                         <segue destination="Y9c-JO-oCf" kind="push" identifier="ViewPhoto" id="gEC-Lp-Zj0"/>
                     </connections>
@@ -191,8 +185,8 @@
     </scenes>
     <resources>
         <image name="background_blue.jpg" width="640" height="1136"/>
+        <image name="background_light.jpg" width="640" height="1136"/>
         <image name="background_mountain.jpg" width="640" height="1136"/>
-        <image name="background_ny.jpg" width="640" height="1136"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
