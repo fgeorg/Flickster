@@ -42,7 +42,7 @@
                                         <rect key="frame" x="100" y="364" width="120" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="0.81999999999999995" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="My Photos">
+                                        <state key="normal" title="my photos">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -75,10 +75,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_stone.jpg" id="tgX-6S-l7b">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_ny.jpg" id="tgX-6S-l7b">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
+                            <view contentMode="scaleToFill" id="nEX-06-lei" userLabel="plainBackground">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="uDP-xt-vv1">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,6 +97,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="P8x-xn-yNx"/>
                     <connections>
+                        <outlet property="plainBackground" destination="nEX-06-lei" id="9t4-Xb-MCZ"/>
                         <outlet property="scrollView" destination="uDP-xt-vv1" id="UiF-kb-fUd"/>
                         <segue destination="Y9c-JO-oCf" kind="push" identifier="ViewPhoto" id="gEC-Lp-Zj0"/>
                     </connections>
@@ -112,11 +118,16 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="1nl-gh-N8n">
+                                <rect key="frame" x="142" y="297" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Omb-6d-kK7"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="1nl-gh-N8n" id="5S3-5E-5Y8"/>
                         <outlet property="imageView" destination="ydh-bK-ExW" id="Dne-p4-ESo"/>
                     </connections>
                 </viewController>
@@ -181,7 +192,7 @@
     <resources>
         <image name="background_blue.jpg" width="640" height="1136"/>
         <image name="background_mountain.jpg" width="640" height="1136"/>
-        <image name="background_stone.jpg" width="640" height="1136"/>
+        <image name="background_ny.jpg" width="640" height="1136"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

@@ -34,17 +34,20 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLoggedIn) name:@"FlickrUserLoggedIn" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLoggedOut) name:@"FlickrUserLoggedOut" object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     [self updateView];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
+    [super viewDidDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"FlickrUserLoggedIn" object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"FlickrUserLoggedOut" object:nil];
 }

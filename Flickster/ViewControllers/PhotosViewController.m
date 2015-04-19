@@ -18,6 +18,7 @@
 @interface PhotosViewController()
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *plainBackground;
 @property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, assign) BOOL outOfPages;
 @property (nonatomic, assign) NSInteger currentPage;
@@ -30,10 +31,20 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    self.plainBackground.alpha = 0;
     CGRect navBarFrame = self.navigationController.navigationBar.frame;
     self.scrollView.contentInset = UIEdgeInsetsMake(navBarFrame.origin.y + navBarFrame.size.height, 0, 0, 0);
     
     [self loadNextPage];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [UIView animateWithDuration:.3 animations:^{
+        self.plainBackground.alpha = .5f;
+    }];
 }
 
 - (void)addThumbnailToViewWithPhotoDictionary:(NSDictionary *)photoDictionary

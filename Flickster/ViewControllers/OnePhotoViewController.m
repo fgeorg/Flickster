@@ -10,6 +10,11 @@
 #import "PhotoThumbnail.h"
 #import "FlickrClient.h"
 
+@interface OnePhotoViewController()
+
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
+@end
 
 @implementation OnePhotoViewController
 
@@ -32,6 +37,7 @@
          [UIView animateWithDuration:.3f animations:^{
              self.imageView.alpha = 1;
          }];
+         [self.activityIndicator stopAnimating];
      }];
 }
 
