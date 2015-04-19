@@ -137,7 +137,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_blue.jpg" id="Q2V-cj-Zan">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_dark.jpg" id="Q2V-cj-Zan">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -184,7 +184,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background_blue.jpg" width="640" height="1136"/>
+        <image name="background_dark.jpg" width="325" height="576"/>
         <image name="background_light.jpg" width="640" height="1136"/>
         <image name="background_mountain.jpg" width="640" height="1136"/>
     </resources>
