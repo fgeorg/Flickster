@@ -20,19 +20,34 @@
     photoThumbnail.layer.cornerRadius = 8;
     photoThumbnail.clipsToBounds = YES;
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[[FlickrClient sharedInstance] thumbnailURLForPhotoDictionary:photoDictionary]];
+    return photoThumbnail;
+}
+
+- (void)downloadImage
+{
+    NSURL *url = [[FlickrClient sharedInstance] thumbnailURLForPhotoDictionary:self.photoDictionary];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url
+                                             cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                         timeoutInterval:4.0];
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
      {
-         UIImage *image = [[UIImage alloc] initWithData:data];
-         [photoThumbnail setImage:image forState:UIControlStateNormal];
-         [UIView animateWithDuration:.3f animations:^{
-             photoThumbnail.alpha = 1;
-         }];
+         if (!data)
+         {
+             NSLog(@"Error: No data when downloading thumbnail. %@", [error localizedDescription]);
+             // try again after 1 second
+             [self performSelector:@selector(downloadImage) withObject:nil afterDelay:1.0f];
+         }
+         else
+         {
+             UIImage *image = [[UIImage alloc] initWithData:data];
+             [self setImage:image forState:UIControlStateNormal];
+             [UIView animateWithDuration:.3f animations:^{
+                 self.alpha = 1;
+             }];
+         }
      }];
-    
-    return photoThumbnail;
 }
 
 

@@ -14,4 +14,6 @@
 
 + (instancetype)photoThumbnailWithFrame:(CGRect)frame photoDictionary:(NSDictionary *)photoDictionary;
 
+- (void)downloadImage;
+
 @end

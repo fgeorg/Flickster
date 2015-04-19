@@ -45,6 +45,7 @@
     CGFloat y = self.currentYOffset + kThumbnailPadding;
     
     PhotoThumbnail *photoThumbnail = [PhotoThumbnail photoThumbnailWithFrame:CGRectMake(x, y, width, height) photoDictionary:photoDictionary];
+    [photoThumbnail downloadImage];
     
     [photoThumbnail addTarget:self
                        action:@selector(onThumbnailPressed:)
