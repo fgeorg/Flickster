@@ -64,34 +64,56 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="uDP-xt-vv1">
-                                <rect key="frame" x="0.0" y="48" width="320" height="520"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="97f-Dh-haX">
-                                <rect key="frame" x="203" y="0.0" width="117" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="0.81999999999999995" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <inset key="contentInset" minX="0.0" minY="70" maxX="0.0" maxY="0.0"/>
                                 <connections>
-                                    <action selector="onBackPressed:" destination="dqb-cU-gvh" eventType="touchUpInside" id="Ovh-6Z-xTj"/>
-                                    <action selector="onBackPressed:" destination="LlL-qx-sKJ" eventType="touchUpInside" id="cAf-aL-H67"/>
-                                    <action selector="onLoginPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Xg6-0u-HnG"/>
+                                    <outlet property="delegate" destination="LlL-qx-sKJ" id="mdk-wR-VUY"/>
                                 </connections>
-                            </button>
+                            </scrollView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" id="4Zz-G3-i2k" userLabel="Header">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="KNV-94-5mk">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="97f-Dh-haX">
+                                            <rect key="frame" x="204" y="25" width="108" height="37"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="0.81999999999999995" colorSpace="calibratedWhite"/>
+                                            <state key="normal" title="Back">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="onBackPressed:" destination="dqb-cU-gvh" eventType="touchUpInside" id="Ovh-6Z-xTj"/>
+                                                <action selector="onBackPressed:" destination="LlL-qx-sKJ" eventType="touchUpInside" id="cAf-aL-H67"/>
+                                                <action selector="onLoginPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Xg6-0u-HnG"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kLa-Y3-w2X">
+                                            <rect key="frame" x="66" y="33" width="77" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.76421294019999997" blue="0.57638011229999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="q5j-9N-EbK"/>
                     <connections>
                         <outlet property="backButton" destination="97f-Dh-haX" id="7Yb-yd-3Rk"/>
+                        <outlet property="loadingLabel" destination="kLa-Y3-w2X" id="9kC-ba-x30"/>
                         <outlet property="scrollView" destination="uDP-xt-vv1" id="UiF-kb-fUd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lEa-fP-dsC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="391" y="499"/>
+            <point key="canvasLocation" x="197" y="1008"/>
         </scene>
         <!--Auth View Controller-->
         <scene sceneID="dAp-Xo-elm">

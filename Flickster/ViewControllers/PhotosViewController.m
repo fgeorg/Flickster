@@ -13,6 +13,9 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UILabel *loadingLabel;
+@property (nonatomic, assign) BOOL didPullDown;
+@property (nonatomic, assign) NSInteger currentPage;
 
 @end
 
@@ -21,32 +24,8 @@
 - (void)viewDidLoad
 {
     self.backButton.layer.cornerRadius = 8;
-
-    if ([[FlickrClient sharedInstance] isAuthorized])
-    {
-        [[FlickrClient sharedInstance] getPhotosAsync:^(NSArray *photos, NSError *error) {
-            if (error)
-            {
-                NSLog(@"Error while trying to view photos: %@", error.localizedDescription);
-            }
-            else
-            {
-                for (NSURL *url in photos) {
-                    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-                    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-
-                        UIImage *image = [[UIImage alloc] initWithData:data];
-                        [self addImageToView:image];
-
-                    }];
-                }
-            }
-        }];
-    }
-    else
-    {
-        NSLog(@"Error: Not logged in while viewing photos!");
-    }
+    self.loadingLabel.hidden = YES;
+    [self loadNextPage];
 }
 
 - (IBAction)onBackPressed:(id)sender
@@ -57,7 +36,7 @@
 - (void) addImageToView:(UIImage *)image {
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     
-    CGFloat width = CGRectGetWidth(self.scrollView.frame);
+    CGFloat width = 100;//CGRectGetWidth(self.scrollView.frame);
     CGFloat imageRatio = image.size.width / image.size.height;
     CGFloat height = width / imageRatio;
     CGFloat x = 0;
@@ -70,6 +49,53 @@
     
     [self.scrollView addSubview:imageView];
     
+}
+
+- (void)loadNextPage
+{
+    if ([[FlickrClient sharedInstance] isAuthorized])
+    {
+        [[FlickrClient sharedInstance] getPhotosAsync:^(NSArray *photos, NSError *error) {
+            self.didPullDown = NO;
+            self.loadingLabel.hidden = YES;
+            if (error)
+            {
+                NSLog(@"Error while trying to view photos: %@", error.localizedDescription);
+            }
+            else
+            {
+                for (NSURL *url in photos)
+                {
+                    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+                    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+                    {
+                        UIImage *image = [[UIImage alloc] initWithData:data];
+                        [self addImageToView:image];
+                    }];
+                }
+                self.currentPage++;
+            }
+        } page:self.currentPage];
+    }
+    else
+    {
+        NSLog(@"Error: Not logged in while viewing photos!");
+    }
+    
+    self.loadingLabel.hidden = NO;
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat bottomOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+    
+    if (!self.didPullDown && scrollView.contentOffset.y > bottomOffset + 50)
+    {
+        self.didPullDown = YES;
+        [self loadNextPage];
+    }
 }
 
 @end

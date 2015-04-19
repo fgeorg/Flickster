@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PhotosViewController : UIViewController
+@interface PhotosViewController : UIViewController<UIScrollViewDelegate>
 
 @end

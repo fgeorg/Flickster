@@ -26,16 +26,20 @@ SingletonImplementation
     [[FlickrKit sharedFlickrKit] initializeWithAPIKey:kFlickrAPIKey sharedSecret:kFlickrAPISecret];
 }
 
-- (void)getPhotosAsync:(void(^)(NSArray *, NSError *))completionBlock
+- (void)getPhotosAsync:(void(^)(NSArray *, NSError *))completionBlock page:(NSInteger)page
 {
-    [[FlickrKit sharedFlickrKit] call:@"flickr.photos.search" args:@{@"user_id": self.userId, @"per_page": @"15"} maxCacheAge:FKDUMaxAgeNeverCache completion:^(NSDictionary *response, NSError *error) {
+    NSDictionary *args = @{@"user_id": self.userId,
+                           @"per_page": @"15",
+                           @"page": [NSString stringWithFormat:@"%zi", page + 1]
+    };
+    [[FlickrKit sharedFlickrKit] call:@"flickr.photos.search" args:args maxCacheAge:FKDUMaxAgeNeverCache completion:^(NSDictionary *response, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (response)
             {
                 NSMutableArray *photoURLs = [NSMutableArray array];
                 for (NSDictionary *photoDictionary in [response valueForKeyPath:@"photos.photo"])
                 {
-                    NSURL *url = [[FlickrKit sharedFlickrKit] photoURLForSize:FKPhotoSizeSmall240 fromPhotoDictionary:photoDictionary];
+                    NSURL *url = [[FlickrKit sharedFlickrKit] photoURLForSize:FKPhotoSizeThumbnail100 fromPhotoDictionary:photoDictionary];
                     [photoURLs addObject:url];
                 }
                 completionBlock(photoURLs, nil);
@@ -43,31 +47,10 @@ SingletonImplementation
             else
             {
                 completionBlock(nil, error);
-
+                
             }
         });
     }];
-
-//
-//    FKFlickrPhotosSearch *search = [[FKFlickrPhotosSearch alloc] init];
-//    search.text = @"banana";
-//    search.per_page = @"15";
-//    [[FlickrKit sharedFlickrKit] call:search completion:^(NSDictionary *response, NSError *error) {
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            if (response) {
-//                NSMutableArray *photoURLs = [NSMutableArray array];
-//                for (NSDictionary *photoDictionary in [response valueForKeyPath:@"photos.photo"]) {
-//                    NSURL *url = [[FlickrKit sharedFlickrKit] photoURLForSize:FKPhotoSizeSmall240 fromPhotoDictionary:photoDictionary];
-//                    [photoURLs addObject:url];
-//                    NSLog(@"%@\n\n", photoDictionary);
-//                }
-//
-//            } else {
-//                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-//                [alert show];
-//            }
-//        });
-//    }];
 }
 
 

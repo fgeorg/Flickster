@@ -13,7 +13,7 @@
 
 - (void)setup;
 
-- (void)getPhotosAsync:(void(^)(NSArray *, NSError *))completionBlock;
+- (void)getPhotosAsync:(void(^)(NSArray *, NSError *))completionBlock page:(NSInteger)page;
 
 - (BOOL)isAuthorized;
 
